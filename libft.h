@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/15 19:16:24 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/16 15:21:19 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct		s_list
 }					t_list;
 
 char				*ft_itoa(int n);
-char				*ft_str_realloc(char *old, size_t size);
 char				*ft_strnew(size_t size);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack,
@@ -82,5 +81,8 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+char				*ft_str_realloc(char *old, size_t size);
+void				*ft_memrealloc(void *old, size_t old_size, size_t new_size)
 
 #endif

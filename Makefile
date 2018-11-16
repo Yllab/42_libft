@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/15 19:16:45 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/16 15:19:26 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,14 @@ SRCS		=	./ft_atoi.c 		\
 				./ft_strtrim.c 		\
 				./ft_tolower.c 		\
 				./ft_toupper.c 		\
-				./ft_str_realloc.c	\
 				./ft_lstadd.c		\
 				./ft_lstdel.c		\
 				./ft_lstdelone.c	\
 				./ft_lstiter.c		\
 				./ft_lstmap.c		\
-				./ft_lstnew.c
+				./ft_lstnew.c		\
+				./ft_str_realloc.c	\
+				./ft_memrealloc.c
 
 OBJS		=	$(SRCS:.c=.o)
 
