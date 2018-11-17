@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:07:24 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/16 17:45:09 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/17 17:12:31 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <sys/uio.h>
 #include <strings.h>
 #include <ctype.h>
-#include "./libft/libft.h"
+#include "libft.h"
 
 #define SIZE 100
 
