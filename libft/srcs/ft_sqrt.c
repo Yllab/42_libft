@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 20:15:19 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/19 13:41:38 by hbally           ###   ########.fr       */
+/*   Created: 2018/11/26 09:28:50 by hbally            #+#    #+#             */
+/*   Updated: 2018/11/26 09:30:27 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	ft_memdel(void **ap)
+int		ft_sqrt(int nb)
 {
-	if (ap != NULL && *ap != NULL)
+	int min;
+	int mid;
+	int max;
+
+	mid = 0;
+	min = 0;
+	max = nb;
+	if (nb <= 0)
+		return (0);
+	while (max - min > 1)
 	{
-		free(*ap);
-		*ap = NULL;
+		mid = (min + max) / 2;
+		if (mid * mid == nb)
+			return (mid);
+		else if (mid * mid > nb || mid > 46340)
+			max = mid;
+		else
+			min = mid;
 	}
+	return (0);
 }
