@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/26 09:34:24 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/26 09:47:33 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,14 +90,17 @@ $(NAME)		:	$(OBJS)
 
 test		:	$(OBJS)
 				$(CC) -o ../test.o -c $(CFLAGS) -I $(INCLUDES) ../test.c
-				$(CC) -o ../test.out $(CFLAGS) -I $(INCLUDES) $(OBJS) ../test.o
+				$(CC) -o ../test $(CFLAGS) -I $(INCLUDES) $(OBJS) ../test.o
 				@clear
 				norminette
+
+runtest		:
+				@clear
 				@../test.out
-				@rm ../test.out ../test.o
 
 %.o			:	%.c
 				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
+
 clean		:
 				rm -f $(OBJS)
 

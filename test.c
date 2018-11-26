@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:07:24 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/17 17:12:31 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/26 09:37:04 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -954,9 +954,8 @@ int		main(int argc, char **argv)
 */
 
 	argc = 0;
-	argv = NULL;
 
-
+	printf("%d\n", ft_sqrt(atoi(argv[1]))); 
 
 
 
