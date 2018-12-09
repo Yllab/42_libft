@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/26 09:40:27 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/09 16:09:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char				*ft_str_realloc(char *old, size_t size);
 void				*ft_memrealloc(void *old, size_t old_size, size_t new_size);
+
 int					ft_sqrt(int nb);
+void				ft_int_swap(int *a, int *b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/29 10:37:48 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/09 16:10:12 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRCS		=	./srcs/ft_atoi.c 			\
 				./srcs/ft_lstnew.c			\
 				./srcs/ft_str_realloc.c		\
 				./srcs/ft_memrealloc.c		\
+				./srcs/ft_int_swap.c		\
 				./srcs/ft_sqrt.c
 
 INCLUDES	=	-I ./includes/
