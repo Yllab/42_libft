@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/09 16:09:59 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 18:01:30 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void				ft_putchar_fd(char c, int fd);
 
 char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
