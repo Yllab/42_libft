@@ -36,7 +36,10 @@ long			ft_atol(const char *str)
 		printf("%ld\n", ret);
 		if (ret < previous &&
 				-ret != 9223372036854775807)
+		{
+			printf("----------\n");
 			return (0L);
+		}
 		previous = ret;
 		i++;
 	}
