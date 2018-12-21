@@ -34,7 +34,7 @@ long			ft_atol(const char *str)
 	{
 		ret = ret * 10 + (str[i] - '0');
 		if (ret < previous &&
-				(ret < 0 ? (ret - 1) < 0 : 1))
+				(ret < 0 ? (ret - 1) < 0 : 1) && sign == -1)
 		{
 			printf("----------\n");
 			return (0L);
