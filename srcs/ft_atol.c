@@ -30,10 +30,10 @@ long			ft_atol(const char *str)
 	i += (str[i] == '+' || str[i] == '-') ? 1 : 0;
 	while (ft_isdigit(str[i]))
 	{
-		printf("ret = %ld", ret);
+		printf("ret = %ld\n", ret);
 		ret = ret * 10 + (str[i] - '0');
 		i++;
 	}
-	printf("ret = %ld", ret);
+	printf("ret = %ld\n", ret);
 	return (ret * sign);
 }
