@@ -92,6 +92,8 @@ CC					=	gcc
 
 CFLAGS				+=	-Wall -Werror -Wextra
 
+all					:	$(NAME)
+
 $(NAME)				: 	$(OBJS)
 						ar rc $@ $(OBJS)
 						ranlib $@
