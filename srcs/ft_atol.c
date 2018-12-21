@@ -40,6 +40,6 @@ long			ft_atol(const char *str)
 		previous = ret;
 		i++;
 	}
-	printf("---------\n", ret);
+	printf("---------\n");
 	return (ret * sign);
 }
