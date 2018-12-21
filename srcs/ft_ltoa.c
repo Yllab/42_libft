@@ -16,7 +16,7 @@
 char				*ft_ltoa(long n)
 {
 	size_t			len;
-	bool			neg;
+	int				neg;
 	char			*ret;
 
 	len = 0;
@@ -32,7 +32,7 @@ char				*ft_ltoa(long n)
 		ret[0] = '-';
 	while (n != 0)
 	{
-		if (!(ret = ft_str_realloc(ret, ++len))
+		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
 		ft_memmove(&ret[!neg ? 1 : 2], !neg ? &ret[0] : &ret[1], len);
 		ret[!neg ? 0 : 1] = '0' + (!neg ? (n % 10) : (-1 * (n % 10)));
