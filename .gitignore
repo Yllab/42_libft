@@ -50,3 +50,4 @@ dkms.confe
 
 # Vim
 *.swp
+*.d
