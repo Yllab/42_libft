@@ -30,8 +30,8 @@ long			ft_atol(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		ret = ret * 10 + (str[i] - '0');
-		if (ret < previous)
-			return (0l);
+		if (ret < previous && ret != -9223372036854775808L)
+			return (0L);
 		previous = ret;
 		i++;
 	}
