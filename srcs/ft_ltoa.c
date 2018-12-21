@@ -13,24 +13,28 @@
 #include "libft.h"
 #include <string.h>
 
-char				*ft_itoa(int n)
+char				*ft_ltoa(long n)
 {
 	size_t			len;
+	bool			neg;
 	char			*ret;
-	unsigned int	neg;
 
 	len = 0;
-	neg = n < 0 ? 1 : 0;
-	ret = ft_strnew(!neg ? len : ++len);
-	if (ret == NULL)
+	neg = n <= 0 ? 1 : 0;
+	if (!(ret = ft_strnew(!neg ? len : ++len)))
 		return (NULL);
-	ret[0] = !neg ? 0 : '-';
-	while (len == 0 ? !len : n != 0)
+	if (n == 0)
 	{
-		ret = ft_str_realloc(ret, ++len);
-		if (ret == NULL)
+		ret[0] = '0';
+		return (ret);
+	}
+	if (neg)
+		ret[0] = '-';
+	while (n != 0)
+	{
+		if (!(ret = ft_str_realloc(ret, ++len))
 			return (NULL);
-		ft_memmove(&ret[!neg ? 1 : 2], !neg ? ret : &ret[1], len);
+		ft_memmove(&ret[!neg ? 1 : 2], !neg ? &ret[0] : &ret[1], len);
 		ret[!neg ? 0 : 1] = '0' + (!neg ? (n % 10) : (-1 * (n % 10)));
 		n /= 10;
 	}
