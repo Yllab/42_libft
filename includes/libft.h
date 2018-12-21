@@ -77,6 +77,7 @@ void				ft_putchar_fd(char c, int fd);
 char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
+long long			ft_atoll(const char *str);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
