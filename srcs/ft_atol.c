@@ -33,7 +33,7 @@ long			ft_atol(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		ret = ret * 10 + (str[i] - '0');
-		printf("%ld\n", ret);
+		printf("ret[%d] = %ld\n", i, ret);
 		if (ret < previous &&
 				-ret != 9223372036854775807)
 		{
