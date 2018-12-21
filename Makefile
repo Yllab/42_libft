@@ -101,7 +101,7 @@ $(NAME)				: 	$(OBJS)
 -include $(DEPENDENCIES)
 
 $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
-						mkdir -p objs
+						@mkdir -p objs
 						$(CC) -o $@ $(CFLAGS) $(INCLUDES) -MMD -c $<
 
 .PHONY				:	clean
