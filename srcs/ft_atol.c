@@ -12,18 +12,17 @@
 
 #include "libft.h"
 
-//debug
-#include <stdio.h>
-
 long			ft_atol(const char *str)
 {
 	int 		i;
 	long 		sign;
 	long 		ret;
+	long		previous;
 
 	i = 0;
 	sign = 1;
 	ret = 0;
+	previous = 0;
 	while ((str[i] >= 7 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	sign = str[i] == '-' ? -1 : 1;
@@ -31,6 +30,9 @@ long			ft_atol(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		ret = ret * 10 + (str[i] - '0');
+		if (ret < previous)
+			return (0l);
+		previous = ret;
 		i++;
 	}
 	return (ret * sign);
