@@ -78,6 +78,7 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_memrealloc.c			\
 						ft_int_swap.c			\
 						ft_atol.c				\
+						ft_atoll.c				\
 						ft_sqrt.c
 
 SRCS				=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
