@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/23 16:42:32 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/23 16:50:13 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ static char		*round(char *s, int precision)
 	if (precision > 0)
 	{
 		len = ft_strlen(s);
+		while (--len > 0)
+		{
+		}
 	}
 }
 
