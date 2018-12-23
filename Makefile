@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/20 17:49:17 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/23 15:02:29 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_atol.c				\
 						ft_atoll.c				\
 						ft_ltoa.c				\
+						ft_dtoa.c				\
 						ft_sqrt.c
 
 SRCS				=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
