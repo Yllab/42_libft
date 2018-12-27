@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <string.h>
 
-char				*ft_ltoa(long n)
+char				*ft_lltoa(long long n)
 {
 	size_t			len;
 	int				neg;
@@ -35,8 +35,8 @@ char				*ft_ltoa(long n)
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
 		ft_memmove(&ret[!neg ? 1 : 2], !neg ? &ret[0] : &ret[1], len);
-		ret[!neg ? 0 : 1] = '0' + (!neg ? (n % 10l) : (-1 * (n % 10l)));
-		n /= 10;
+		ret[!neg ? 0 : 1] = '0' + (!neg ? (n % 10ll) : (-1 * (n % 10ll)));
+		n /= 10ll;
 	}
 	return (ret);
 }

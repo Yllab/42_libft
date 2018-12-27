@@ -23,7 +23,7 @@ static double	get_frac_part(double n)
 	return (n);
 }
 
-static char		*fractoa(double n, int precision, char *int_string)
+static char		*fractoa(double *fract_part, int precision, char *int_string)
 {
 	char		*fract_string;
 	char		*concat_result;
@@ -34,11 +34,11 @@ static char		*fractoa(double n, int precision, char *int_string)
 	if (!(fract_string = ft_strnew(precision > 0 ? 1 : 0)))
 		return (NULL);
 	fract_string[0] = precision > 0 ? '.' : '\0';
-	while (n != 0 && len < precision + 1 && len < 1080)
+	while (len < precision + 1 && len < 1080)
 	{
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
-		n *= 10;
+		*fract_part *= 10;
 		digit = (int)n;
 		fract_string[len - 1] = '0' + digit;
 		n -= (double)digit;
@@ -54,15 +54,19 @@ static char		*fractoa(double n, int precision, char *int_string)
 **	least-significant digit
 */
 
-static char		*round(char *s, int precision)
+static char		*round(char *s, int precision, double *fract_part)
 {
 	int			len;
+	int			i;	
+	int			digit;
+
+	len = ft_strlen(s);
 	
-	if (precision > 0)
+	while (--len > 0)
 	{
-		len = ft_strlen(s);
-		while (--len > 0)
+		if (s[len] >= '5' && s[len] <= '9')
 		{
+			
 		}
 	}
 }
@@ -86,8 +90,8 @@ char			*dtoa(double n, int precision)
 	int_part = (long)(frac_part - (n - frac_part));
 	if ((result = ft_ltoa(int_part * neg)))
 	{
-		if ((result = fractoa(frac_part, precision, result)))
-			return (round(result, precision));
+		if ((result = fractoa(&frac_part, precision, result)))
+			return (round(result, precision, &fract_part));
 		else
 			free(result);
 	}
