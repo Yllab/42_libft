@@ -28,18 +28,15 @@ char				*ft_uitoxa(unsigned int n)
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
 	digit = 0x10u << ((sizeof(int) - 1) * 8);
-	printf("%x\n", digit);
 	while (n / digit == 0)
-	{
-		printf("%x\n", digit);
 		digit = digit >> 4;
-	}
 	while (n != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
 		ret[len - 1] = hexa[n / digit];
 		n -= digit * (n / digit);
+		printf("%d\n", n);
 	}
 	return (ret);
 }
