@@ -36,6 +36,7 @@ char				*ft_uitoxa(unsigned int n)
 			return (NULL);
 		ret[len - 1] = hexa[n / digit];
 		n -= digit * (n / digit);
+		digit = digit >> 4;
 		printf("%d\n", n);
 	}
 	return (ret);
