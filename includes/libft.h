@@ -75,14 +75,21 @@ void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 
 char				*ft_itoa(int n);
-char				*ft_ltoa(long n);
-char				*ft_lltoa(long long n);
-char				*ft_dtoa(double n);
 char				*ft_uitoa(unsigned int n);
-char				*ft_ultoa(unsigned long n);
-char				*ft_ulltoa(unsigned long long n);
 char				*ft_uitoxa(unsigned int n, int upper);
 char				*ft_uitooa(unsigned int n);
+
+char				*ft_ltoa(long n);
+char				*ft_ultoa(unsigned long n);
+char				*ft_ultoxa(unsigned long n, int upper);
+char				*ft_ultooa(unsigned long n);
+
+char				*ft_lltoa(long long n);
+char				*ft_ulltoa(unsigned long long n);
+char				*ft_ulltoxa(unsigned long long n, int upper);
+char				*ft_ulltooa(unsigned long long n);
+
+char				*ft_dtoa(double n);
 
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
