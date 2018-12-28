@@ -33,7 +33,7 @@ char				*ft_uitooa(unsigned int n)
 	while (digit < n && i++ < 10)
 	{
 		printf("%o\n", digit);
-		digit &= digit << 1;
+		digit |= digit << 1;
 	}
 	digit -= digit >> 1;
 	while (n != 0)
