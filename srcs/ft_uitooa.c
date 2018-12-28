@@ -28,8 +28,8 @@ char				*ft_uitooa(unsigned int n)
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
 	digit = 01u;
-	while (digit < n)
-		digit |= digit << 1;
+	while ((digit | digit << 1 | digit << 2) < n)
+		digit |= (digit << 1 | digit << 2 | digit << 3);
 	digit -= digit >> 1;
 	printf("%o\n", digit);
 	while (n != 0)
