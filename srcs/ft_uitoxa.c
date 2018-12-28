@@ -13,6 +13,8 @@
 #include "libft.h"
 #include <string.h>
 
+//debug
+#include <stdio.h>
 char				*ft_uitoxa(unsigned int n)
 {
 	const char		*hexa = "0123456789ABCDEF";
@@ -26,6 +28,7 @@ char				*ft_uitoxa(unsigned int n)
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
 	digit = 0x10u << ((sizeof(int) - 1) * 8);
+	printf("%x\n", digit);
 	while (n / digit == 0)
 	{
 		ft_putstr("1\n");
