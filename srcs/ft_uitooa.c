@@ -15,7 +15,6 @@
 
 char				*ft_uitooa(unsigned int n)
 {
-	const char		*octal = "01234567";
 	unsigned int	digit;
 	size_t			len;
 	char			*ret;
@@ -33,7 +32,7 @@ char				*ft_uitooa(unsigned int n)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
-		ret[len - 1] = octal[n / digit];
+		ret[len - 1] = '0' + n / digit;
 		n -= digit * (n / digit);
 		digit /= 010;
 	}

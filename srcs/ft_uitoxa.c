@@ -13,10 +13,9 @@
 #include <string.h>
 #include "libft.h"
 
-char				*ft_uitoxa(unsigned int n)
+char				*ft_uitoxa(unsigned int n, int upper)
 {
-	const char		*hexa = "0123456789ABCDEF";
-	unsigned int	digit;
+	unsigned int	d;
 	size_t			len;
 	char			*ret;
 
@@ -25,16 +24,16 @@ char				*ft_uitoxa(unsigned int n)
 		return (ft_itoa(0));
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
-	digit = 0x10u << ((sizeof(int) - 1) * 8);
-	while (n / digit == 0)
-		digit = digit >> 4;
-	while (digit != 0)
+	d = 0x10u << ((sizeof(int) - 1) * 8);
+	while (n / d == 0)
+		d = d >> 4;
+	while (d != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
-		ret[len - 1] = hexa[n / digit];
-		n -= digit * (n / digit);
-		digit = digit >> 4;
+		ret[len - 1] = '0' + (n / d < 10 ? n / d : 39 - (32 * upper) + n / d);
+		n -= d * (n / d);
+		d = d >> 4;
 	}
 	return (ret);
 }
