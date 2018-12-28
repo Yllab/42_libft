@@ -13,7 +13,7 @@
 #include <string.h>
 #include "libft.h"
 
-char				*ft_uitoxa(unsigned int n)
+char				*ft_uitooa(unsigned int n)
 {
 	const char		*octal = "01234567";
 	unsigned int	digit;
