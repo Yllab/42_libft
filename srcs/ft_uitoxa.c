@@ -31,7 +31,7 @@ char				*ft_uitoxa(unsigned int n)
 	printf("%x\n", digit);
 	while (n / digit == 0)
 	{
-		ft_putstr("1\n");
+		printf("%x\n", digit);
 		digit = digit >> 4;
 	}
 	while (n != 0)
