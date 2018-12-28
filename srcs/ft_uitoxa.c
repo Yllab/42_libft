@@ -28,7 +28,7 @@ char				*ft_uitoxa(unsigned int n)
 	digit = 0x10u << ((sizeof(int) - 1) * 8);
 	while (n / digit == 0)
 		digit = digit >> 4;
-	while (n != 0)
+	while (digit != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);

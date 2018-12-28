@@ -31,7 +31,7 @@ char				*ft_uitooa(unsigned int n)
 	while ((digit | digit << 1 | digit << 2) < n)
 		digit |= (digit << 1 | digit << 2 | digit << 3);
 	digit -= digit >> 1;
-	while (n != 0)
+	while (digit != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
