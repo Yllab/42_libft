@@ -30,15 +30,16 @@ char				*ft_uitooa(unsigned int n)
 	digit = 01u;
 	while ((digit | digit << 1 | digit << 2) < n)
 		digit |= (digit << 1 | digit << 2 | digit << 3);
+	digit -= digit >> 1;
 	while (n != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
 		ret[len - 1] = octal[n / digit];
-//		printf("n = %d, digit = %o\n", n, digit);
+		printf("n = %d, digit = %o\n", n, digit);
 		n -= digit * (n / digit);
+		printf("n = %d, digit = %o\n-----------\n", n, digit);
 		digit /= 010;
-//		printf("n = %d, digit = %o\n---------\n", n, digit);
 	}
 	return (ret);
 }
