@@ -13,8 +13,6 @@
 #include <string.h>
 #include "libft.h"
 
-#include <stdio.h>
-
 char				*ft_uitooa(unsigned int n)
 {
 	const char		*octal = "01234567";
@@ -36,10 +34,8 @@ char				*ft_uitooa(unsigned int n)
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
 		ret[len - 1] = octal[n / digit];
-		printf("n = %d, digit = %o\n", n, digit);
 		n -= digit * (n / digit);
 		digit /= 010;
-		printf("n = %d, digit = %o\n-----------\n", n, digit);
 	}
 	return (ret);
 }
