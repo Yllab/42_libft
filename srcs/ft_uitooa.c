@@ -29,8 +29,7 @@ char				*ft_uitooa(unsigned int n)
 		return (NULL);
 	digit = 01u;
 	//debug
-	int i = 0;
-	while (digit < n && i++ < 10)
+	while (digit < n)
 	{
 //		printf("%o\n", digit);
 		digit |= digit << 1;
