@@ -29,9 +29,11 @@ char				*ft_uitooa(unsigned int n)
 		return (NULL);
 	digit = 01u;
 	while (digit < n)
+	{
+		printf("%o\n", digit);
 		digit &= digit << 1;
+	}
 	digit -= digit >> 1;
-	printf("%o\n", digit);
 	while (n != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
