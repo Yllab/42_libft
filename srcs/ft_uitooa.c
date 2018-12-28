@@ -28,7 +28,9 @@ char				*ft_uitooa(unsigned int n)
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
 	digit = 01u;
-	while (digit < n)
+	//debug
+	int i = 0;
+	while (digit < n || i++ > 10)
 	{
 		printf("%o\n", digit);
 		digit &= digit << 1;
