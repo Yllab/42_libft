@@ -21,12 +21,7 @@ char				*ft_ultoa(unsigned long n)
 	len = 0;
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
-	if (n == 0)
-	{
-		ret[0] = '0';
-		return (ret);
-	}
-	while (n != 0)
+	while (n != 0 || !len)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);

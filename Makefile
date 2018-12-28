@@ -83,7 +83,8 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_ltoa.c				\
 						ft_uitoa.c				\
 						ft_ultoa.c				\
-						ft_ulltoa.c
+						ft_ulltoa.c				\
+						ft_uitoxa.c
 
 SRCS				=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
 

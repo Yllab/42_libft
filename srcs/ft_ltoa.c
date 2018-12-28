@@ -20,17 +20,12 @@ char				*ft_ltoa(long n)
 	char			*ret;
 
 	len = 0;
-	neg = n <= 0 ? 1 : 0;
+	neg = n < 0 ? 1 : 0;
 	if (!(ret = ft_strnew(!neg ? len : ++len)))
 		return (NULL);
-	if (n == 0)
-	{
-		ret[0] = '0';
-		return (ret);
-	}
 	if (neg)
 		ret[0] = '-';
-	while (n != 0)
+	while (n != 0 || !len)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
