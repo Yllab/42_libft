@@ -37,9 +37,9 @@ char				*ft_uitooa(unsigned int n)
 			return (NULL);
 		ret[len - 1] = octal[n / digit];
 		printf("n = %d, digit = %o\n", n, digit);
+		digit /= 010;
 		n -= digit * (n / digit);
 		printf("n = %d, digit = %o\n-----------\n", n, digit);
-		digit /= 010;
 	}
 	return (ret);
 }
