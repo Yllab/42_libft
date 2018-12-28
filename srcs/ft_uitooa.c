@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoxa.c                                        :+:      :+:    :+:   */
+/*   ft_uitooa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <string.h>
+#include "libft.h"
 
 char				*ft_uitoxa(unsigned int n)
 {
-	const char		*hexa = "0123456789ABCDEF";
+	const char		*octal = "01234567";
 	unsigned int	digit;
 	size_t			len;
 	char			*ret;
@@ -25,16 +25,17 @@ char				*ft_uitoxa(unsigned int n)
 		return (ft_itoa(0));
 	if (!(ret = ft_strnew(len)))
 		return (NULL);
-	digit = 0x10u << ((sizeof(int) - 1) * 8);
-	while (n / digit == 0)
-		digit = digit >> 4;
+	digit = 01u;
+	while (digit < n)
+		digit &= digit << 1;
+	digit -= digit >> 1;
 	while (n != 0)
 	{
 		if (!(ret = ft_str_realloc(ret, ++len)))
 			return (NULL);
-		ret[len - 1] = hexa[n / digit];
+		ret[len - 1] = octal[n / digit];
 		n -= digit * (n / digit);
-		digit = digit >> 4;
+		digit /= 010;
 	}
 	return (ret);
 }
