@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 18:56:05 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:02:47 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 	return (concat_result);
 }
 
-char			*dtoa(double n, size_t p)
+char			*ft_dtoa(double n, size_t p)
 {
 	char				*result;
 	unsigned long long	int_part;
