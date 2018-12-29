@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 19:15:59 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/15 19:16:00 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:25:18 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_str_realloc(char *old, size_t size)
 		}
 		while (i++ < size)
 			new[i - 1] = '\0';
-		free(old);
+//		free(old);
 		return (new);
 	}
 	return (NULL);
