@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:18:30 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:18:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 		*fract_part -= (double)digit;
 	}
 	concat_result = ft_strjoin(int_string, fract_string);
-	ft_putstr("OK 1\n");//debug
 	free(int_string);
 	free(fract_string);
 	return (concat_result);
@@ -70,6 +69,7 @@ char			*ft_dtoa(double n, size_t p)
 	int_part = (unsigned long long)(n - fract_part);
 //	printf("%f\n", fract_part);
 //	printf("%lld\n", int_part);
+	ft_putstr("OK 1\n");//debug
 	if ((result = ft_ulltoa(int_part)))
 	{
 		if ((result = fractoa(&fract_part, p, result)))
