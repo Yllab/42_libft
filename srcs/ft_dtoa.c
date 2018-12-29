@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:16:52 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:17:40 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 		*fract_part -= (double)digit;
 	}
 	concat_result = ft_strjoin(int_string, fract_string);
-//	free(int_string);
-//	free(fract_string);
+	free(int_string);
+	free(fract_string);
+	ft_putstr("OK 1\n");//debug
 	return (concat_result);
 }
 
