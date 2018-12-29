@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:07:26 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:15:33 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static double	get_fract_part(double n)
 	long long sub;
 
 	if (n > (double)0x7FFFFFFFFFFFFFFFll)
-		return (-1.0);
+		return (-1.0f);
 	sub = (long long)n;
 	n -= (double)sub;
 	return (n);
@@ -40,7 +40,7 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
 		return (NULL);
 	fract_string[0] = p > 0 ? '.' : '\0';
-	while ((len < p + 1 && len < 1081) || *fract_part > 0.0)
+	while ((len < p + 1 && len < 1081) || *fract_part > .0f)
 	{
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
@@ -60,22 +60,16 @@ char			*ft_dtoa(double n, size_t p)
 	char				*result;
 	unsigned long long	int_part;
 	double				fract_part;
-	int					neg;
 
-	neg = 1;
 	if (n < 0)
-	{
 		n *= -1;
-		neg = -1;
-	}
 	fract_part = get_fract_part(n);
-	if (fract_part < 0)
+	if (fract_part < .0f || n < .0f)
 		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
-	printf("%f\n", fract_part);
-	printf("%lld\n", int_part);
-	exit(0);
-	if ((result = ft_ulltoa(int_part * neg)))
+//	printf("%f\n", fract_part);
+//	printf("%lld\n", int_part);
+	if ((result = ft_ulltoa(int_part)))
 	{
 		if ((result = fractoa(&fract_part, p, result)))
 			return (round_floatstr(result, p));
