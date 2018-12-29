@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:06:19 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:07:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char			*ft_dtoa(double n, size_t p)
 	fract_part = get_fract_part(n);
 	if (fract_part < 0)
 		return (NULL);
-	int_part = (unsigned long long)(fract_part - (n - fract_part));
+	int_part = (unsigned long long)(n - fract_part);
 	printf("%f\n", fract_part);
 	printf("%lld\n", int_part);
 	exit(0);
