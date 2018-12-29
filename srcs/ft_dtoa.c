@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:31:26 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:33:24 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 	while ((len < p + 1 && len < 1081) || *fract_part > .0f)
 	{
 		ft_putstr("OK 4\n");//debug
+		ft_putstr(fract_string);
+		ft_putstr("\n");//debug
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
 		ft_putstr("OK 5\n");//debug
