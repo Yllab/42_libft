@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:05:50 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:06:19 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include <stdio.h> //DEBUG
 
-static double	get_frac_part(double n)
+static double	get_fract_part(double n)
 {
 	long long sub;
 
