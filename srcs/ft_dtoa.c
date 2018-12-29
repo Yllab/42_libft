@@ -6,12 +6,17 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:02:47 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:05:50 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+
+
+
+
+#include <stdio.h> //DEBUG
 
 static double	get_frac_part(double n)
 {
@@ -54,7 +59,7 @@ char			*ft_dtoa(double n, size_t p)
 {
 	char				*result;
 	unsigned long long	int_part;
-	double				frac_part;
+	double				fract_part;
 	int					neg;
 
 	neg = 1;
@@ -63,13 +68,16 @@ char			*ft_dtoa(double n, size_t p)
 		n *= -1;
 		neg = -1;
 	}
-	frac_part = get_frac_part(n);
-	if (frac_part < 0)
+	fract_part = get_fract_part(n);
+	if (fract_part < 0)
 		return (NULL);
-	int_part = (unsigned long long)(frac_part - (n - frac_part));
+	int_part = (unsigned long long)(fract_part - (n - fract_part));
+	printf("%f\n", fract_part);
+	printf("%lld\n", int_part);
+	exit(0);
 	if ((result = ft_ulltoa(int_part * neg)))
 	{
-		if ((result = fractoa(&frac_part, p, result)))
+		if ((result = fractoa(&fract_part, p, result)))
 			return (round_floatstr(result, p));
 		else
 			free(result);
