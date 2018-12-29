@@ -6,11 +6,12 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 19:15:59 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:27:52 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:32:09 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_str_realloc(char *old, size_t size)
 {
