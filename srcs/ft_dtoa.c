@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:20:34 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 19:22:47 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ char			*ft_dtoa(double n, size_t p)
 		if ((result = fractoa(&fract_part, p, result)))
 			return (round_floatstr(result, p));
 		else
+		{
+			ft_putstr("ERROR\n");
 			free(result);
+		}
 	}
 	return (NULL);
 }
