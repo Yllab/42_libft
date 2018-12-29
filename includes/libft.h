@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/23 15:02:43 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 18:57:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ char				*ft_ulltoa(unsigned long long n);
 char				*ft_ulltoxa(unsigned long long n, int upper);
 char				*ft_ulltooa(unsigned long long n);
 
-char				*ft_dtoa(double n);
+char				*ft_dtoa(double n, size_t p);
+char				*round_floatstr(char *s, size_t p);
 
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
