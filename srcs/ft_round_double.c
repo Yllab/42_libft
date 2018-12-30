@@ -24,6 +24,7 @@ static char		*add_digit(char *s, size_t len)
 	int			i;
 	char		*new;
 
+	printf("adding digit\n");
 	if ((new = ft_str_realloc(s, len + 1)))
 	{
 		ft_memmove(&(s[1]), s, len);
