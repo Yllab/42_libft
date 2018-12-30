@@ -44,12 +44,12 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 		fract_string[0] = '.';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
-		if (!(ft_str_realloc(fract_string, ++len)))
+		len += 1;
+		if (!(ft_str_realloc(fract_string, len)))
 			return (NULL);
-//		++len;//debug
 		fract_part *= 10;
 		digit = (int)(fract_part);
-		fract_string[len - 2] = '0' + digit;
+//		fract_string[len - 2] = '0' + digit;
 		printf("fract_string = %s\n", fract_string);
 		fract_part -= (double)digit;
 	}
