@@ -35,7 +35,7 @@ static char		*cut_precision(char *s, size_t p)
 	len = 0;
 	while (s[len] && s[len] != '.')
 		len++;
-	if (p > 0)
+	if (p > 0 && s[len + 1])
 	{
 		len++;
 		while (p-- > 0 && s[len])
