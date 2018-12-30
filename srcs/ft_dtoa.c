@@ -37,23 +37,18 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	size_t		len;
 
 	len = 1;
-	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
-		return (NULL);
+//	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
+//		return (NULL);
+	fract_string = (char*)ft_memalloc(200);//debug
 	fract_string[0] = p > 0 ? '.' : '\0';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
-		if (!(ft_str_realloc(fract_string, ++len)))
-			return (NULL);
-		if (fract_string[0] == '.')
-			ft_putstr("OK\n");
-		if (fract_string[1] == '\0')
-			ft_putstr("OK\n");
-		if (fract_string[40] == '\0')
-			ft_putstr("OK\n");
+//		if (!(ft_str_realloc(fract_string, ++len)))
+//			return (NULL);
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[len - 1] = '0' + digit;
-		fract_string[1] = '0' + digit;
+		printf("%s\n", fract_string);
 		fract_part -= (double)digit;
 	}
 	concat_result = ft_strjoin(int_string, fract_string);
