@@ -76,9 +76,8 @@ char			*ft_round_double(char *s, size_t p)
 
 	len = ft_strlen(s);
 	point_pos = 0;
-	while (s[point_pos] && s[point_pos] != '.')
+	while (s[point_pos] && s[point_pos - 1] != '.')
 		point_pos++;
-	printf("point pos = %zu\n", point_pos);
 	i = (int)len;
 	printf("Loop 1\n");
 	while (--i >= 0 && s[i] != '.' && (size_t)i > point_pos + p)
