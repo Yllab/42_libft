@@ -41,14 +41,14 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 //		return (NULL);
 	fract_string = (char*)ft_memalloc(200);//debug
 	fract_string[0] = p > 0 ? '.' : '\0';
-	while (len < p + 1 && len < 1081)
+	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
 //		if (!(ft_str_realloc(fract_string, ++len)))
 //			return (NULL);
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[len - 1] = '0' + digit;
-		printf("%s\n", fract_string);
+		printf("fract_string = %s\n", fract_string);
 		fract_part -= (double)digit;
 	}
 	concat_result = ft_strjoin(int_string, fract_string);
