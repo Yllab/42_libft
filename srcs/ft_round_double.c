@@ -101,6 +101,7 @@ char			*ft_round_double(char *s, size_t p)
 	i = (int)len - 1;
 	while (i >= 0 && i >= (int)(point_pos + p))
 	{
+		printf("point_pos = %zu, i = %d\n", point_pos, i);
 		if (is_rounded(s, i, 0))
 		{
 			s[i - 1] += 1;
