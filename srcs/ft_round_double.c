@@ -113,6 +113,7 @@ char			*ft_round_double(char *s, size_t p)
 	i = (int)len - 1;
 	while (i >= 0 && s[i] != '.' && (size_t)i >= point_pos + p)
 	{
+		printf("%c\n", s[i]);
 		if (is_rounded(s, i, 0))
 		{
 			s[i - 1] += 1;
@@ -121,6 +122,7 @@ char			*ft_round_double(char *s, size_t p)
 				s[j++] = '0';
 		}
 		i--;
+		printf("%s\n", s);
 	}
 	if ((s = final_rounding_pass(s, len, p == 0)))
 		s = cut_precision(s, p);
