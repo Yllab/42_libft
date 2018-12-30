@@ -36,16 +36,17 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	int			digit;
 	size_t		len;
 
-	len = 1;
-//	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
-//		return (NULL);
-	fract_string = (char*)ft_memalloc(200);//debug
-	fract_string[0] = p > 0 ? '.' : '\0';
+	len = 0;
+	if (!(fract_string = ft_strnew(p > 0 ? ++len : len)))
+		return (NULL);
+//	fract_string = (char*)ft_memalloc(200);//debug
+	if (p > 0)
+		fract_string[0] = '.';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
-//		if (!(ft_str_realloc(fract_string, ++len)))
-//			return (NULL);
-		++len;//debug
+		if (!(ft_str_realloc(fract_string, ++len)))
+			return (NULL);
+//		++len;//debug
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[len - 1] = '0' + digit;
