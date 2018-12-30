@@ -99,7 +99,7 @@ char			*ft_round_double(char *s, size_t p)
 	while (s[point_pos] && s[point_pos - 1] != '.')
 		point_pos++;
 	i = (int)len - 1;
-	while (i >= 0 && s[i] != '.' && i >= (int)(point_pos + p))
+	while (i >= 0 && i > (int)(point_pos + p))
 	{
 		if (is_rounded(s, i, 0))
 		{
