@@ -19,6 +19,15 @@
 
 #include <stdio.h> //debug
 
+static int		is_rounded(char *s, size_t i, int jump_point)
+{
+	if ((s[i] == '5' &&
+			s[i - (1 + jump_point)] % 2 != 0) ||
+				(s[i] >= '6' && s[i] <= ':'))
+		return (1);
+	return (0);
+}
+
 static char		*cut_precision(char *s, size_t p)
 {
 	size_t		len;
@@ -64,14 +73,10 @@ static char		*final_rounding_pass(char *s, size_t len, int round_intpart)
 	i = (int)len;
 	while (--i > 0)
 	{
-		if (s[i] == ':' || (round_intpart && s[i - 1] == '.' &&
-					((s[i] == '5' && s[i - 2] % 2 != 0) ||
-					 (s[i] >= '6' && s[i] <= ':'))))
+		if (s[i] == ':' ||
+				(round_intpart && s[i - 1] == '.' && is_rounded(s, i, 1)))
 		{
-			if (s[i - 1] != '.')
-				s[i - 1] += 1;
-			else
-				s[i - 2] += 1;
+			s[i - (1 + (s[i - 1] == '.'))] += 1;
 			j = (size_t)i;
 			while (j < len)
 			{
@@ -80,7 +85,6 @@ static char		*final_rounding_pass(char *s, size_t len, int round_intpart)
 				j++;
 			}
 		}
-		printf("%s\n", s);
 	}
 	if (s[0] == ':')
 		s = add_digit(s, len);
@@ -98,22 +102,20 @@ char			*ft_round_double(char *s, size_t p)
 	point_pos = 0;
 	while (s[point_pos] && s[point_pos - 1] != '.')
 		point_pos++;
-	i = (int)len;
-	printf("Loop 1\n");
-	while (--i >= 0 && s[i] != '.' && (size_t)i >= point_pos + p)
+	i = (int)len - 1;
+	while (i >= 0 && s[i] != '.' && (size_t)i >= point_pos + p)
 	{
-		if ((s[i] == '5' && (s[i - 1] % 2)) ||
-				(s[i] >= '6' && s[i] <= ':'))
+		if (is_rounded(s, i, 0))
 		{
 			s[i - 1] += 1;
 			j = (size_t)i;
 			while (j < len)
 				s[j++] = '0';
 		}
+		i--;
 		printf("%s\n", s);
 		printf("%*c\n", i, '^');
 	}
-	printf("Loop 2\n");
 	if ((s = final_rounding_pass(s, len, p == 0)))
 		s = cut_precision(s, p);
 	return (s);
