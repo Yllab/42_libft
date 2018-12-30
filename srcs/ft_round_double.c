@@ -87,7 +87,7 @@ char			*ft_round_double(char *s, size_t p)
 		{
 			s[i - 1] += 1;
 			j = (size_t)i;
-			while (j < len && j <= point_pos + p)
+			while (j < len)
 				s[j++] = '0';
 		}
 		printf("%s\n", s);
