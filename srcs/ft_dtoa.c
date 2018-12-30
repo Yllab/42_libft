@@ -37,32 +37,27 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	size_t		len;
 
 	len = 1;
-	ft_putstr("Entered fractoa\n");
-//	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
-	if (!(fract_string = ft_strnew(1)))
+	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
 		return (NULL);
-	printf("[1]fract_string = %s\n", fract_string);
-	fract_string[0] = '.';
+	fract_string[0] = p > 0 ? '.' : '\0';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
-		printf("[2]fract_string = %s\n", fract_string);
-		ft_putstr("Entering Loop\n");//debug
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
-		printf("len = %zu\n", ft_strlen(fract_string));
-		printf("[3]fract_string = %s\n", fract_string);
+		if (fract_string[0] == '.')
+			ft_putstr("OK\n");
+		if (fract_string[1] == '\0')
+			ft_putstr("OK\n");
+		if (fract_string[2] == '\0')
+			ft_putstr("OK\n");
+		if (fract_string[3] == '\0')
+			ft_putstr("OK\n");
 		fract_part *= 10;
-		printf("fract_part = %f\n", fract_part);
 		digit = (int)(fract_part);
-		printf("digit = %d\n", digit);
-		printf("len - 1 = %zu, '0' + digit = %c\n", len - 1, '0' + digit);
-//		fract_string[len - 1] = '0' + digit;
-		fract_string[1] = '0';
-		printf("[4]fract_string = %s\n", fract_string);
+		fract_string[len - 1] = '0' + digit;
+		fract_string[1] = '0' + digit;
 		fract_part -= (double)digit;
-		printf("fract_part = %f\n________\n", fract_part);
 	}
-	ft_putstr("OK 6\n");//debug
 	concat_result = ft_strjoin(int_string, fract_string);
 	free(int_string);
 	free(fract_string);
