@@ -100,9 +100,9 @@ char			*ft_round_double(char *s, size_t p)
 		point_pos++;
 	i = (int)len;
 	printf("Loop 1\n");
-	while (--i >= 0 && s[i] != '.' && (size_t)i > point_pos + p)
+	while (--i >= 0 && s[i] != '.' && (size_t)i >= point_pos + p)
 	{
-		if ((s[i] == '5' && s[i - 1] % 2 != 0) ||
+		if ((s[i] == '5' && (s[i - 1] % 2)) ||
 				(s[i] >= '6' && s[i] <= ':'))
 		{
 			s[i - 1] += 1;
