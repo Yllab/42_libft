@@ -17,8 +17,6 @@
  **	least-significant digit
  */
 
-#include <stdio.h> // debug
-
 static int		is_rounded(char *s, size_t i, int jump_point)
 {
 	if ((s[i] == '5' &&
