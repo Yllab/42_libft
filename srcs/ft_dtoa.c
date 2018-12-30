@@ -36,7 +36,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	int			digit;
 	size_t		len;
 
-	len = 0;
+	len = 1;
 	if (!(fract_string = ft_strnew(p > 0 ? ++len : len)))
 		return (NULL);
 //	fract_string = (char*)ft_memalloc(200);//debug
