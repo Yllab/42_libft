@@ -24,7 +24,7 @@ static char		*add_digit(char *s, size_t len)
 	int			i;
 	char		*new;
 
-	printf("adding digit\n");
+	printf("adding digit\n");//debug
 	if ((new = ft_str_realloc(s, len + 1)))
 	{
 		ft_memmove(&(s[1]), s, len);
@@ -33,6 +33,7 @@ static char		*add_digit(char *s, size_t len)
 		while (s[++i])
 			if (s[i] != '.')
 				s[i] = '0';
+		printf("result > %s\n", new);//debug
 		return (new);
 	}
 	return (NULL);
@@ -57,7 +58,6 @@ static char		*final_pass(char *s, size_t len, int round_intpart)
 			j = (size_t)i;
 			while (j < len)
 			{
-				printf("a");
 				if (s[j] != '.')
 					s[j] = '0';
 				j++;
