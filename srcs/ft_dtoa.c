@@ -81,9 +81,6 @@ char			*ft_dtoa(double n)
 	double				fract_part;
 	char				*string;
 
-	string = check_special(n);
-	if (string)
-		return (string);
 	if (n < 0)
 		n *= -1;
 	fract_part = get_fract_part(n);
