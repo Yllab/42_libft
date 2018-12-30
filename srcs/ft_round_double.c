@@ -19,6 +19,23 @@
 
 #include <stdio.h> //debug
 
+static char		*cut_precision(char *s, size_t p)
+{
+	size_t		len;
+
+	len = 0;
+	while (s[len] && s[len] != '.')
+		len++;
+	if (p > 0)
+	{
+		len++;
+		while (p-- > 0 && s[len + 1])
+			len++;
+	}
+	s = ft_str_realloc(s, len);
+	return (s);
+}
+
 static char		*add_digit(char *s, size_t len)
 {
 	int			i;
@@ -39,7 +56,7 @@ static char		*add_digit(char *s, size_t len)
 	return (NULL);
 }
 
-static char		*final_pass(char *s, size_t len, int round_intpart)
+static char		*final_rounding_pass(char *s, size_t len, int round_intpart)
 {
 	int			i;
 	size_t		j;
@@ -97,7 +114,7 @@ char			*ft_round_double(char *s, size_t p)
 		printf("%*c\n", i, '^');
 	}
 	printf("Loop 2\n");
-	if ((s = final_pass(s, len, p == 0)) && (point_pos + p + 1 < len))
-		s[point_pos + p + 1] = '\0';
+	if ((s = final_rounding_pass(s, len, p == 0)))
+		s = cut_precision(s, p);
 	return (s);
 }
