@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_round_floatstr.c                                :+:      :+:    :+:   */
+/*   ft_round_double.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,8 +16,6 @@
  **	Rounds to nearest, ties go to the nearest value with an even
  **	least-significant digit
  */
-
-#include <stdio.h> //debug
 
 static int		is_rounded(char *s, size_t i, int jump_point)
 {
@@ -38,18 +36,10 @@ static char		*cut_precision(char *s, size_t p)
 	if (p > 0)
 	{
 		len++;
-		if (p > 1000)
-			p = 1000;
-		while (p-- > 0)
+		while (p-- > 0 && s[len + 1])
 			len++;
 	}
 	s = ft_str_realloc(s, len);
-	while (len > 0)
-	{
-		if (s[len - 1] == '\0')
-			s[len - 1] = '0';
-		len--;
-	}
 	return (s);
 }
 
@@ -58,7 +48,6 @@ static char		*add_digit(char *s, size_t len)
 	int			i;
 	char		*new;
 
-	printf("adding digit\n");//debug
 	if ((new = ft_str_realloc(s, len + 1)))
 	{
 		ft_memmove(&(new[1]), new, len);
@@ -67,7 +56,6 @@ static char		*add_digit(char *s, size_t len)
 		while (new[++i])
 			if (new[i] != '.')
 				new[i] = '0';
-		printf("result > \n%s\n", new);//debug
 		return (new);
 	}
 	return (NULL);
@@ -111,9 +99,8 @@ char			*ft_round_double(char *s, size_t p)
 	while (s[point_pos] && s[point_pos - 1] != '.')
 		point_pos++;
 	i = (int)len - 1;
-	while (i >= 0 && s[i] != '.' && (size_t)i >= point_pos + p)
+	while (i >= 0 && i >= (int)(point_pos + p))
 	{
-		printf("%c\n", s[i]);
 		if (is_rounded(s, i, 0))
 		{
 			s[i - 1] += 1;
@@ -122,7 +109,6 @@ char			*ft_round_double(char *s, size_t p)
 				s[j++] = '0';
 		}
 		i--;
-		printf("%s\n", s);
 	}
 	if ((s = final_rounding_pass(s, len, p == 0)))
 		s = cut_precision(s, p);
