@@ -41,7 +41,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 //		return (NULL);
 	fract_string = (char*)ft_memalloc(200);//debug
 	fract_string[0] = p > 0 ? '.' : '\0';
-	while ((len < p + 1 && len < 1081) || fract_part > .0f)
+	while (len < p + 1 && len < 1081)
 	{
 //		if (!(ft_str_realloc(fract_string, ++len)))
 //			return (NULL);
