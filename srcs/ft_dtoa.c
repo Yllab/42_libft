@@ -43,18 +43,19 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 		return (NULL);
 	printf("[1]fract_string = %s\n", fract_string);
 	fract_string[0] = p > 0 ? '.' : '\0';
-	printf("[2]fract_string = %s\n", fract_string);
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
+		printf("[2]fract_string = %s\n", fract_string);
 		ft_putstr("Entering Loop\n");//debug
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
+		printf("[3]fract_string = %s\n", fract_string);
 		fract_part *= 10;
 		printf("fract_part = %f\n", fract_part);
 		digit = (int)(fract_part);
 		printf("digit = %d\n", digit);
 		fract_string[len - 1] = '0' + digit;
-		printf("[3]fract_string = %s\n", fract_string);
+		printf("[4]fract_string = %s\n", fract_string);
 		fract_part -= (double)digit;
 		printf("fract_part = %f\n________\n", fract_part);
 	}
