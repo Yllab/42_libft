@@ -57,6 +57,7 @@ static char		*final_pass(char *s, size_t len, int round_intpart)
 			j = (size_t)i;
 			while (j < len)
 			{
+				printf("a");
 				if (s[j] != '.')
 					s[j++] = '0';
 			}
