@@ -67,7 +67,7 @@ static char		*final_pass(char *s, size_t len, int round_intpart)
 	return (s);
 }
 
-char			*round_double(char *s, size_t p)
+char			*ft_round_double(char *s, size_t p)
 {
 	size_t		len;
 	size_t		point_pos;
