@@ -32,6 +32,7 @@ static double	get_fract_part(double n)
 static size_t	get_fract_len(double fract_part, size_t p)
 {
 	size_t		i;
+	int			digit;
 
 	i = 1;
 	while ((i < p + 1 && i < 1081) || fract_part > .0f)
