@@ -17,6 +17,8 @@
  **	least-significant digit
  */
 
+#include <stdio.h> // debug
+
 static int		is_rounded(char *s, size_t i, int jump_point)
 {
 	if ((s[i] == '5' &&
@@ -99,7 +101,7 @@ char			*ft_round_double(char *s, size_t p)
 	while (s[point_pos] && s[point_pos - 1] != '.')
 		point_pos++;
 	i = (int)len - 1;
-	while (i >= 0 && i >= (int)(point_pos + p))
+	while (i >= 0 && i > (int)(point_pos + p))
 	{
 		printf("point_pos = %zu, i = %d\n", point_pos, i);
 		if (is_rounded(s, i, 0))
