@@ -41,6 +41,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	ft_putstr("Entered fractoa\n");
 	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
 		return (NULL);
+	printf("fract_string = %s\n", fract_string);
 	fract_string[0] = p > 0 ? '.' : '\0';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
