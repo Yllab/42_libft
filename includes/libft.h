@@ -90,7 +90,7 @@ char				*ft_ulltoxa(unsigned long long n, int upper);
 char				*ft_ulltooa(unsigned long long n);
 
 char				*ft_dtoa(double n);
-char				*round_floatstr(char *s, size_t p);
+char				*round_double(char *s, size_t p);
 
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);

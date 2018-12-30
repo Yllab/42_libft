@@ -13,8 +13,6 @@
 #include <stdlib.h>
 #include "libft.h"
 
-#include <stdio.h> //DEBUG
-
 /*
 ** This dtoa only supports doubles between LLONG_MIN and LLONG_MAX
 ** and doesnt support special values.

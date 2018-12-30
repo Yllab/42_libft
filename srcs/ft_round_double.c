@@ -17,6 +17,8 @@
  **	least-significant digit
  */
 
+#include <stdio.h> //debug
+
 static char		*add_digit(char *s, size_t len)
 {
 	int			i;
@@ -55,39 +57,43 @@ static char		*final_pass(char *s, size_t len, int round_intpart)
 			while (j < len)
 			{
 				if (s[j] != '.')
-					s[j] = '0';
+					s[j++] = '0';
 			}
 		}
+		printf("%s\n", s);
 	}
 	if (s[0] == ':')
 		s = add_digit(s, len);
 	return (s);
 }
 
-char			*round_floatstr(char *s, size_t p)
+char			*round_double(char *s, size_t p)
 {
 	size_t		len;
-	size_t		point_index;
+	size_t		point_pos;
 	int			i;	
 	size_t		j;
 
 	len = ft_strlen(s);
-	point_index = 0;
-	while (s[point_index] && s[point_index] != '.')
-		point_index++;
+	point_pos = 0;
+	while (s[point_pos] && s[point_pos] != '.')
+		point_pos++;
 	i = (int)len;
-	while (--i >= 0 && s[i] != '.' && (size_t)i > point_index + p)
+	printf("Loop 1\n");
+	while (--i >= 0 && s[i] != '.' && (size_t)i > point_pos + p)
 	{
 		if ((s[i] == '5' && s[i - 1] % 2 != 0) ||
 				(s[i] >= '6' && s[i] <= ':'))
 		{
 			s[i - 1] += 1;
 			j = (size_t)i;
-			while (j < len && j <= point_index + p)
+			while (j < len && j <= point_pos + p)
 				s[j++] = '0';
 		}
+		printf("%s\n", s);
 	}
-	if ((s = final_pass(s, len, p <= 0)) && (point_index + p + 1 < len))
-		s[point_index + p + 1] = '\0';
+	printf("Loop 2\n");
+	if ((s = final_pass(s, len, p <= 0)) && (point_pos + p + 1 < len))
+		s[point_pos + p + 1] = '\0';
 	return (s);
 }
