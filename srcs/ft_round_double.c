@@ -78,6 +78,7 @@ char			*ft_round_double(char *s, size_t p)
 	point_pos = 0;
 	while (s[point_pos] && s[point_pos] != '.')
 		point_pos++;
+	printf("point pos = %zu\n", point_pos);
 	i = (int)len;
 	printf("Loop 1\n");
 	while (--i >= 0 && s[i] != '.' && (size_t)i > point_pos + p)
@@ -94,7 +95,7 @@ char			*ft_round_double(char *s, size_t p)
 		printf("%*c\n", i, '^');
 	}
 	printf("Loop 2\n");
-	if ((s = final_pass(s, len, p <= 0)) && (point_pos + p + 1 < len))
+	if ((s = final_pass(s, len, p == 0)) && (point_pos + p + 1 < len))
 		s[point_pos + p + 1] = '\0';
 	return (s);
 }
