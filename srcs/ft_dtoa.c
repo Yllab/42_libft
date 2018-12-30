@@ -29,6 +29,21 @@ static double	get_fract_part(double n)
 	return (n);
 }
 
+static size_t	get_fract_len(double fract_part, size_t p)
+{
+	size_t		i;
+
+	i = 1;
+	while ((i < p + 1 && i < 1081) || fract_part > .0f)
+	{
+		fract_part *= 10;
+		digit = (int)(fract_part);
+		fract_part -= (double)digit;
+		i++;
+	}
+	return (i);
+}
+
 static char		*fractoa(double fract_part, size_t p, char *int_string) // why fract part is a pointer ??
 {
 	char		*fract_string;
@@ -36,10 +51,10 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	int			digit;
 	size_t		len;
 
-	len = 0;
-	if (!(fract_string = ft_strnew(p > 0 ? ++len : len)))
-		return (NULL);
-//	fract_string = (char*)ft_memalloc(200);//debug
+	len = get_fract_len(fract_part, p);
+	printf("len should be %zu\n", ft_strlen(".55435000000000034248159863636828958988189697265625"));
+	printf("len = %zu\n", len);
+	exit(0);
 	if (p > 0)
 		fract_string[0] = '.';
 	while ((len < p + 1 && len < 1081) || fract_part > .0f)
@@ -49,8 +64,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 			return (NULL);
 		fract_part *= 10;
 		digit = (int)(fract_part);
-//		fract_string[len - 2] = '0' + digit;
-		printf("fract_string = %s\n", fract_string);
+		fract_string[len - 2] = '0' + digit;
 		fract_part -= (double)digit;
 	}
 	printf("done\n");
