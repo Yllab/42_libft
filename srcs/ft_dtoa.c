@@ -73,7 +73,7 @@ static char		*fractoa(double fract_part, char *int_string)
 	return (concat_result);
 }
 
-char			*ft_dtoa(double n, size_t p)
+char			*ft_dtoa(double n)
 {
 	unsigned long long	int_part;
 	double				fract_part;
@@ -88,8 +88,7 @@ char			*ft_dtoa(double n, size_t p)
 	if ((result = ft_ulltoa(int_part)))
 	{
 		if ((result = fractoa(fract_part, result)))
-			exit(0);//debug
-//			return (round_floatstr(result, p));
+			return (result);
 		else
 			free(result);
 	}
