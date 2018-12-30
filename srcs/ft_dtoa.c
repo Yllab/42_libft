@@ -55,7 +55,8 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 		digit = (int)(fract_part);
 		printf("digit = %d\n", digit);
 		printf("len - 1 = %zu, '0' + digit = %c\n", len - 1, '0' + digit);
-		fract_string[len - 1] = '0' + digit;
+//		fract_string[len - 1] = '0' + digit;
+		fract_string[1] = '0';
 		printf("[4]fract_string = %s\n", fract_string);
 		fract_part -= (double)digit;
 		printf("fract_part = %f\n________\n", fract_part);
