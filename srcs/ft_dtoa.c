@@ -75,9 +75,8 @@ char			*ft_dtoa(double n, size_t p)
 	if (fract_part < .0f || n < .0f)
 		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
-//	printf("%f\n", fract_part);
-//	printf("%lld\n", int_part);
-	ft_putstr("OK 1\n");//debug
+	printf("%f\n", fract_part);
+	printf("%lld\n", int_part);
 	if ((result = ft_ulltoa(int_part)))
 	{
 		if ((result = fractoa(fract_part, p, result)))
