@@ -52,6 +52,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 		printf("fract_string = %s\n", fract_string);
 		fract_part -= (double)digit;
 	}
+	printf("done\n");
 	concat_result = ft_strjoin(int_string, fract_string);
 	free(int_string);
 	free(fract_string);
