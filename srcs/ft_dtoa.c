@@ -47,7 +47,7 @@ static size_t	get_fract_len(double fract_part)
 	return (i);
 }
 
-static char		*fractoa(double fract_part, char *int_string)
+static char		*fractoa(double fract_part, char *string)
 {
 	char		*fract_string;
 	char		*concat_result;
@@ -67,8 +67,8 @@ static char		*fractoa(double fract_part, char *int_string)
 		fract_string[i] = '0' + digit;
 		fract_part -= (double)digit;
 	}
-	concat_result = ft_strjoin(int_string, fract_string);
-	free(int_string);
+	concat_result = ft_strjoin(string, fract_string);
+	free(string);
 	free(fract_string);
 	return (concat_result);
 }
@@ -77,7 +77,7 @@ char			*ft_dtoa(double n)
 {
 	unsigned long long	int_part;
 	double				fract_part;
-	char				*result;
+	char				*string;
 
 	if (n < 0)
 		n *= -1;
@@ -85,12 +85,15 @@ char			*ft_dtoa(double n)
 	if (fract_part < .0f || n < .0f)
 		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
-	if ((result = ft_ulltoa(int_part)))
+	if ((string = ft_ulltoa(int_part)))
 	{
-		if ((result = fractoa(fract_part, result)))
-			return (result);
+		if ((string = fractoa(fract_part, string)))
+		{
+			while (1);
+			return (string);
+		}
 		else
-			free(result);
+			free(string);
 	}
 	return (NULL);
 }
