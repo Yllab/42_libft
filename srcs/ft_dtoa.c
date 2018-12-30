@@ -59,8 +59,8 @@ static char		*fractoa(double fract_part, char *int_string)
 	if (!(fract_string = ft_strnew(len)))
 		return (NULL);
 	fract_string[0] = '.';
-	i = 1;
-	while (i < len)
+	i = 0;
+	while (++i < len)
 	{
 		fract_part *= 10;
 		digit = (int)(fract_part);
