@@ -16,6 +16,10 @@
 /*
 ** This dtoa only supports doubles between LLONG_MIN and LLONG_MAX
 ** and doesnt support special values.
+**
+** /!\/!\/!\/!\/!\
+** Does not print the '-' sign if value is negative
+** /!\/!\/!\/!\/!\
 */
 
 static double	get_fract_part(double n)

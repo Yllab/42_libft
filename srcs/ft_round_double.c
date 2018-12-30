@@ -38,10 +38,18 @@ static char		*cut_precision(char *s, size_t p)
 	if (p > 0)
 	{
 		len++;
-		while (p-- > 0 && s[len + 1])
+		if (p > 1000)
+			p = 1000;
+		while (p-- > 0)
 			len++;
 	}
 	s = ft_str_realloc(s, len);
+	while (len > 0)
+	{
+		if (s[len - 1] == '\0')
+			s[len - 1] = '0';
+		len--;
+	}
 	return (s);
 }
 
