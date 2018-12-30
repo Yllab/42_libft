@@ -45,6 +45,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	{
 //		if (!(ft_str_realloc(fract_string, ++len)))
 //			return (NULL);
+		++len;//debug
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[len - 1] = '0' + digit;
