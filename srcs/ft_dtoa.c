@@ -48,9 +48,7 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 			ft_putstr("OK\n");
 		if (fract_string[1] == '\0')
 			ft_putstr("OK\n");
-		if (fract_string[2] == '\0')
-			ft_putstr("OK\n");
-		if (fract_string[3] == '\0')
+		if (fract_string[5] == '\0')
 			ft_putstr("OK\n");
 		fract_part *= 10;
 		digit = (int)(fract_part);
