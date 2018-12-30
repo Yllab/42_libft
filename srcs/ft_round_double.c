@@ -36,7 +36,7 @@ static char		*cut_precision(char *s, size_t p)
 	if (p > 0)
 	{
 		len++;
-		while (p-- > 0 && s[len + 1])
+		while (p-- > 0 && s[len])
 			len++;
 	}
 	s = ft_str_realloc(s, len);
