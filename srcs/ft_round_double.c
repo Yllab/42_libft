@@ -91,7 +91,7 @@ char			*ft_round_double(char *s, size_t p)
 				s[j++] = '0';
 		}
 		printf("%s\n", s);
-		printf("%*c\n", i, '^');
+		printf("%*c\n", i + 1, '^');
 	}
 	printf("Loop 2\n");
 	if ((s = final_pass(s, len, p <= 0)) && (point_pos + p + 1 < len))
