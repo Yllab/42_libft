@@ -13,10 +13,12 @@
 #include <stdlib.h>
 #include "libft.h"
 
-
-
-
 #include <stdio.h> //DEBUG
+
+/*
+** This dtoa only supports doubles between LLONG_MIN and LLONG_MAX
+** and doesnt support special values.
+*/
 
 static double	get_fract_part(double n)
 {
@@ -29,13 +31,13 @@ static double	get_fract_part(double n)
 	return (n);
 }
 
-static size_t	get_fract_len(double fract_part, size_t p)
+static size_t	get_fract_len(double fract_part)
 {
 	size_t		i;
 	int			digit;
 
 	i = 1;
-	while ((i < p + 1 && i < 1081) || fract_part > .0f)
+	while (fract_part > .0f)
 	{
 		fract_part *= 10;
 		digit = (int)(fract_part);
@@ -45,30 +47,26 @@ static size_t	get_fract_len(double fract_part, size_t p)
 	return (i);
 }
 
-static char		*fractoa(double fract_part, size_t p, char *int_string) // why fract part is a pointer ??
+static char		*fractoa(double fract_part, char *int_string)
 {
 	char		*fract_string;
 	char		*concat_result;
 	int			digit;
 	size_t		len;
+	size_t		i; 
 
-	len = get_fract_len(fract_part, p);
-	printf("len should be %zu\n", ft_strlen(".55435000000000034248159863636828958988189697265625"));
-	printf("len = %zu\n", len);
-	exit(0);
-	if (p > 0)
-		fract_string[0] = '.';
-	while ((len < p + 1 && len < 1081) || fract_part > .0f)
+	len = get_fract_len(fract_part);
+	if (!(fract_string = ft_strnew(len)))
+		return (NULL);
+	fract_string[0] = '.';
+	i = 1;
+	while (i < len)
 	{
-		len += 1;
-		if (!(ft_str_realloc(fract_string, len)))
-			return (NULL);
 		fract_part *= 10;
 		digit = (int)(fract_part);
-		fract_string[len - 2] = '0' + digit;
+		fract_string[i] = '0' + digit;
 		fract_part -= (double)digit;
 	}
-	printf("done\n");
 	concat_result = ft_strjoin(int_string, fract_string);
 	free(int_string);
 	free(fract_string);
@@ -77,9 +75,9 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 
 char			*ft_dtoa(double n, size_t p)
 {
-	char				*result;
 	unsigned long long	int_part;
 	double				fract_part;
+	char				*result;
 
 	if (n < 0)
 		n *= -1;
@@ -87,17 +85,13 @@ char			*ft_dtoa(double n, size_t p)
 	if (fract_part < .0f || n < .0f)
 		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
-	printf("%f\n", fract_part);
-	printf("%lld\n", int_part);
 	if ((result = ft_ulltoa(int_part)))
 	{
-		if ((result = fractoa(fract_part, p, result)))
-			return (round_floatstr(result, p));
+		if ((result = fractoa(fract_part, result)))
+			exit(0);//debug
+//			return (round_floatstr(result, p));
 		else
-		{
-			ft_putstr("ERROR\n");
 			free(result);
-		}
 	}
 	return (NULL);
 }
