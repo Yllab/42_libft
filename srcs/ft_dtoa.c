@@ -29,7 +29,7 @@ static double	get_fract_part(double n)
 	return (n);
 }
 
-static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fract part is a pointer ??
+static char		*fractoa(double fract_part, size_t p, char *int_string) // why fract part is a pointer ??
 {
 	char		*fract_string;
 	char		*concat_result;
@@ -37,22 +37,24 @@ static char		*fractoa(double *fract_part, size_t p, char *int_string) // why fra
 	size_t		len;
 
 	len = 1;
-	ft_putstr("OK 2\n");//debug
+
+	ft_putstr("Entered fractoa\n");
 	if (!(fract_string = ft_strnew(p > 0 ? 1 : 0)))
 		return (NULL);
 	fract_string[0] = p > 0 ? '.' : '\0';
-	while ((len < p + 1 && len < 1081) || *fract_part > .0f)
+	while ((len < p + 1 && len < 1081) || fract_part > .0f)
 	{
-		ft_putstr("OK 4\n");//debug
-		ft_putstr(fract_string);
-		ft_putstr("\n");//debug
+		ft_putstr("Entering Loop\n");//debug
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
-		ft_putstr("OK 5\n");//debug
-		*fract_part *= 10;
-		digit = (int)(*fract_part);
+		fract_part *= 10;
+		printf("fract_part = %f\n", fract_part);
+		digit = (int)(fract_part);
+		printf("digit = %d\n", digit);
 		fract_string[len - 1] = '0' + digit;
-		*fract_part -= (double)digit;
+		printf("fract_string = %s\n", fract_string);
+		fract_part -= (double)digit;
+		printf("fract_part = %f\n________\n", fract_part);
 	}
 	ft_putstr("OK 6\n");//debug
 	concat_result = ft_strjoin(int_string, fract_string);
@@ -78,7 +80,7 @@ char			*ft_dtoa(double n, size_t p)
 	ft_putstr("OK 1\n");//debug
 	if ((result = ft_ulltoa(int_part)))
 	{
-		if ((result = fractoa(&fract_part, p, result)))
+		if ((result = fractoa(fract_part, p, result)))
 			return (round_floatstr(result, p));
 		else
 		{
