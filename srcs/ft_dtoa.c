@@ -88,10 +88,7 @@ char			*ft_dtoa(double n)
 	if ((string = ft_ulltoa(int_part)))
 	{
 		if ((string = fractoa(fract_part, string)))
-		{
-			while (1);
 			return (string);
-		}
 		else
 			free(string);
 	}
