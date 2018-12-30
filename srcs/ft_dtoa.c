@@ -47,9 +47,9 @@ static char		*fractoa(double fract_part, size_t p, char *int_string) // why frac
 	{
 		printf("[2]fract_string = %s\n", fract_string);
 		ft_putstr("Entering Loop\n");//debug
-		printf("len = %zu\n", len);
 		if (!(ft_str_realloc(fract_string, ++len)))
 			return (NULL);
+		printf("len = %zu\n", ft_strlen(fract_string));
 		printf("[3]fract_string = %s\n", fract_string);
 		fract_part *= 10;
 		printf("fract_part = %f\n", fract_part);
