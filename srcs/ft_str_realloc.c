@@ -22,7 +22,10 @@ char	*ft_str_realloc(char *old, size_t size)
 	{
 		new = (char*)ft_memalloc(++size);
 		if (!new)
+		{
+			free(old);
 			return (NULL);
+		}
 		i = 0;
 		while (old[i] && i < size - 1)
 		{

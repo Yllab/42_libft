@@ -27,13 +27,13 @@ static char		*add_digit(char *s, size_t len)
 	printf("adding digit\n");//debug
 	if ((new = ft_str_realloc(s, len + 1)))
 	{
-		ft_memmove(&(s[1]), s, len);
-		s[0] = '1';
+		ft_memmove(&(new[1]), new, len);
+		new[0] = '1';
 		i = 0;
-		while (s[++i])
-			if (s[i] != '.')
-				s[i] = '0';
-		printf("result > %s\n", new);//debug
+		while (new[++i])
+			if (new[i] != '.')
+				new[i] = '0';
+		printf("result > \n%s\n", new);//debug
 		return (new);
 	}
 	return (NULL);
