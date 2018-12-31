@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 10:10:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/16 10:30:23 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 16:09:49 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char					*ft_ulltooa(unsigned long long n)
 {
-	unsigned long long 	digit;
+	unsigned long long	digit;
 	size_t				len;
 	char				*ret;
 

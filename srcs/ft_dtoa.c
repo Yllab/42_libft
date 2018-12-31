@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:35:25 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 16:08:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 ** /!\/!\/!\/!\/!\
 ** If value is negative, '-' will not be printed
 */
-
-#include <stdio.h> //DEBUG
 
 static double	get_fract_part(double n)
 {
