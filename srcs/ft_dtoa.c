@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:08:40 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:20:29 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 
 static double	get_fract_part(double n)
 {
-	unsigned long long sub;
+	long long sub;
 
 	if (n > (double)0xFFFFFFFFFFFFFFFFll)
 		return (-1.0f);
-	sub = (unsigned long long)n;
+	sub = (long long)n;
 	n -= (double)sub;
 	return (n);
 }
