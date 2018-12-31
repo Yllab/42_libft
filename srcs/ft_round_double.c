@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 18:48:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:54:16 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:55:33 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		is_rounded(char *s, size_t i, int jump_point)
 {
 	if ((s[i] == '5' &&
 		((s[i - (1 + jump_point)] % 2 != 0) ||
-		(s[i - (1 + jump_point)] == 0))) ||
+		(s[i - (1 + jump_point)] == '0'))) ||
 			(s[i] >= '6' && s[i] <= ':'))
 		return (1);
 	return (0);
