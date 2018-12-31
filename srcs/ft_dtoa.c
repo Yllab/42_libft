@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 19:33:24 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 12:10:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 #include "libft.h"
 
 /*
-** This dtoa only supports doubles between LLONG_MIN and LLONG_MAX
-** and doesnt support special values.
+** This is a partial implementation of original dtoa (does not support the
+** full range of double values)
 **
 ** /!\/!\/!\/!\/!\
-** Does not print the '-' sign if value is negative
-** /!\/!\/!\/!\/!\
+** If value is negative, '-' will not be printed
 */
 
 static double	get_fract_part(double n)
@@ -55,7 +54,7 @@ static char		*fractoa(double fract_part, char *string)
 	char		*concat_result;
 	int			digit;
 	size_t		len;
-	size_t		i; 
+	size_t		i;
 
 	len = get_fract_len(fract_part);
 	if (!(fract_string = ft_strnew(len)))

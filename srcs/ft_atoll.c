@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:00:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 17:46:26 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 12:08:03 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long long		ft_atoll(const char *str)
 {
-	int 		i;
+	int			i;
 	long long	sign;
 	long long	ret;
 	long long	previous;
@@ -30,7 +30,7 @@ long long		ft_atoll(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		ret = ret * 10 + (str[i] - '0');
-		if (ret < previous && (ret < 0 && sign == -1 ?  (ret - 1) < 0 : 1))
+		if ((ret < previous) && (ret < 0 && sign == -1 ? (ret - 1) < 0 : 1))
 			return (0LL);
 		previous = ret;
 		i++;

@@ -6,16 +6,16 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 18:48:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 18:57:37 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 12:12:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- **	Rounds to nearest, ties go to the nearest value with an even
- **	least-significant digit
- */
+**	Rounds to nearest, ties go to the nearest value with an even
+**	least-significant digit
+*/
 
 static int		is_rounded(char *s, size_t i, int jump_point)
 {
@@ -91,7 +91,7 @@ char			*ft_round_double(char *s, size_t p)
 {
 	size_t		len;
 	size_t		point_pos;
-	size_t		i;	
+	size_t		i;
 	size_t		j;
 
 	len = ft_strlen(s);
