@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:23:48 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:25:14 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static size_t	get_fract_len(double fract_part)
 	int			digit;
 
 	i = 1;
-	while (fract_part > .0f)
+	while (fract_part > .0f || i > 1000)
 	{
-		printf("%f\n", fract_part);
+//		printf("%f\n", fract_part);
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_part -= (double)digit;
@@ -66,7 +66,6 @@ static char		*fractoa(double fract_part, char *string)
 	i = 0;
 	while (++i < len)
 	{
-		ft_putstr("DEBUG 3\n");
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[i] = '0' + digit;
@@ -87,13 +86,11 @@ char			*ft_dtoa(double n)
 	if (n < 0)
 		n *= -1;
 	fract_part = get_fract_part(n);
-	ft_putstr("DEBUG 1\n");
 	if (fract_part < .0f || n < .0f)
 		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
 	if ((string = ft_ulltoa(int_part)))
 	{
-		ft_putstr("DEBUG 2\n");
 		if ((string = fractoa(fract_part, string)))
 			return (string);
 		else
