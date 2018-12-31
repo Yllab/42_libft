@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dtoa.c                                          :+:      :+:    :+:   */
+/*   ft_ldtoa.c                                          :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:08:40 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:11:08 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-/*
-** This is a partial implementation of original dtoa (does not support the
-** full range of double values)
-**
-** /!\/!\/!\/!\/!\
-** If value is negative, '-' will not be printed
-*/
-
-static double	get_fract_part(double n)
+static long double	get_fract_part(long double n)
 {
 	unsigned long long sub;
 
-	if (n > (double)0xFFFFFFFFFFFFFFFFll)
+	if (n > (long double)0xFFFFFFFFFFFFFFFFull)
 		return (-1.0f);
 	sub = (unsigned long long)n;
-	n -= (double)sub;
+	n -= (long double)sub;
 	return (n);
 }
 
-static size_t	get_fract_len(double fract_part)
+static size_t		get_fract_len(long double fract_part)
 {
 	size_t		i;
 	int			digit;
@@ -42,13 +34,13 @@ static size_t	get_fract_len(double fract_part)
 	{
 		fract_part *= 10;
 		digit = (int)(fract_part);
-		fract_part -= (double)digit;
+		fract_part -= (long double)digit;
 		i++;
 	}
 	return (i);
 }
 
-static char		*fractoa(double fract_part, char *string)
+static char			*fractoa(long double fract_part, char *string)
 {
 	char		*fract_string;
 	char		*concat_result;
@@ -66,7 +58,7 @@ static char		*fractoa(double fract_part, char *string)
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_string[i] = '0' + digit;
-		fract_part -= (double)digit;
+		fract_part -= (long double)digit;
 	}
 	concat_result = ft_strjoin(string, fract_string);
 	free(string);
@@ -74,10 +66,10 @@ static char		*fractoa(double fract_part, char *string)
 	return (concat_result);
 }
 
-char			*ft_dtoa(double n)
+char				*ft_ldtoa(long double n)
 {
 	unsigned long long	int_part;
-	double				fract_part;
+	long double			fract_part;
 	char				*string;
 
 	if (n < 0)
