@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:34:06 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:35:25 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ static size_t	get_fract_len(double fract_part)
 	int			digit;
 
 	i = 1;
-	while (fract_part > .0f)
+	while (fract_part > .0f && i < 1000)
 	{
-		printf("%f\n", fract_part);
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_part -= (double)digit;
