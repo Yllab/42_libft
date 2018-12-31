@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:22:12 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:23:48 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 ** /!\/!\/!\/!\/!\
 ** If value is negative, '-' will not be printed
 */
+
+#include <stdio.h> //DEBUG
 
 static double	get_fract_part(double n)
 {
@@ -40,7 +42,7 @@ static size_t	get_fract_len(double fract_part)
 	i = 1;
 	while (fract_part > .0f)
 	{
-		ft_putstr("DEBUG 4\n");
+		printf("%f\n", fract_part);
 		fract_part *= 10;
 		digit = (int)(fract_part);
 		fract_part -= (double)digit;
