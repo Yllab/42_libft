@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldtoa.c                                         :+:      :+:    :+:   */
+/*   ft_ldtoa.c                                          :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/31 16:09:26 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 16:09:27 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/31 16:08:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+/*
+** This is a partial implementation of original dtoa (does not support the
+** full range of long double values)
+**
+** /!\/!\/!\/!\/!\
+** If value is negative, '-' will not be printed
+*/
+
 static long double	get_fract_part(long double n)
 {
 	long long sub;
 
-	if (n > (long double)0x7FFFFFFFFFFFFFFFull)
-		return (-1.0f);
 	sub = (long long)n;
 	n -= (long double)sub;
 	return (n);
@@ -66,7 +72,7 @@ static char			*fractoa(long double fract_part, char *string)
 	return (concat_result);
 }
 
-char				*ft_ldtoa(long double n)
+char				*ft_dtoa(long double n)
 {
 	unsigned long long	int_part;
 	long double			fract_part;
@@ -75,8 +81,6 @@ char				*ft_ldtoa(long double n)
 	if (n < 0)
 		n *= -1;
 	fract_part = get_fract_part(n);
-	if (fract_part < .0f || n < .0f)
-		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
 	if ((string = ft_ulltoa(int_part)))
 	{

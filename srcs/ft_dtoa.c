@@ -21,19 +21,12 @@
 ** If value is negative, '-' will not be printed
 */
 
-#include <stdio.h> //debug
-
 static double	get_fract_part(double n)
 {
 	long long sub;
 
-//	if (n > (double)0x7FFFFFFFFFFFFFFFll)
-//		return (-1.0f);
 	sub = (long long)n;
-	printf("---------\nn is %f\n", n);
-	printf("n as a long long is %lld\n", (long long)n); 
 	n -= (double)sub;
-	printf("fract_part is %f\n", n); 
 	return (n);
 }
 
@@ -88,8 +81,6 @@ char			*ft_dtoa(double n)
 	if (n < 0)
 		n *= -1;
 	fract_part = get_fract_part(n);
-//	if (fract_part < .0f || n < .0f)
-//		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
 	if ((string = ft_ulltoa(int_part)))
 	{
