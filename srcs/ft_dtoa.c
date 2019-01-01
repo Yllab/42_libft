@@ -21,6 +21,8 @@
 ** If value is negative, '-' will not be printed
 */
 
+#include <stdio.h> //debug
+
 static double	get_fract_part(double n)
 {
 	long long sub;
@@ -28,7 +30,10 @@ static double	get_fract_part(double n)
 //	if (n > (double)0x7FFFFFFFFFFFFFFFll)
 //		return (-1.0f);
 	sub = (long long)n;
+	printf("---------\nn is %f\n", n);
+	printf("n as a long long is %lld\n", (long long)n); 
 	n -= (double)sub;
+	printf("fract_part is %f\n", n); 
 	return (n);
 }
 
