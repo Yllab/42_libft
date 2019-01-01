@@ -72,7 +72,7 @@ static char			*fractoa(long double fract_part, char *string)
 	return (concat_result);
 }
 
-char				*ft_dtoa(long double n)
+char				*ft_ldtoa(long double n)
 {
 	unsigned long long	int_part;
 	long double			fract_part;
