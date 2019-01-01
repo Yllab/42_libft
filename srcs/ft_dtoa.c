@@ -25,8 +25,8 @@ static double	get_fract_part(double n)
 {
 	long long sub;
 
-	if (n > (double)0x7FFFFFFFFFFFFFFFll)
-		return (-1.0f);
+//	if (n > (double)0x7FFFFFFFFFFFFFFFll)
+//		return (-1.0f);
 	sub = (long long)n;
 	n -= (double)sub;
 	return (n);
