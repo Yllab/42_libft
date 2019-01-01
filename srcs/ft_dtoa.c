@@ -83,8 +83,8 @@ char			*ft_dtoa(double n)
 	if (n < 0)
 		n *= -1;
 	fract_part = get_fract_part(n);
-	if (fract_part < .0f || n < .0f)
-		return (NULL);
+//	if (fract_part < .0f || n < .0f)
+//		return (NULL);
 	int_part = (unsigned long long)(n - fract_part);
 	if ((string = ft_ulltoa(int_part)))
 	{
