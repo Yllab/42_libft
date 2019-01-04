@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 18:48:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 16:02:03 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/04 11:06:15 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char			*ft_round_double(char *s, size_t p)
 	point_pos = 0;
 	while (s[point_pos] && s[point_pos] != '.')
 		point_pos++;
-	i = len - 1;
+	i = point_pos + p + 1 < len ? point_pos + p + 1 : 0;
 	while (i > point_pos + p)
 	{
 		if (is_rounded(s, i, 0) && s[i - 1] != '.')
