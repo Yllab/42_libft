@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldtoa.c                                          :+:      :+:    :+:  */
+/*   ft_ldtoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 18:20:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 16:08:26 by hbally           ###   ########.fr       */
+/*   Created: 2019/01/04 10:44:59 by hbally            #+#    #+#             */
+/*   Updated: 2019/01/04 10:45:04 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-/*
-** This is a partial implementation of original dtoa (does not support the
-** full range of long double values)
-**
-** /!\/!\/!\/!\/!\
-** If value is negative, '-' will not be printed
-*/
 
 static long double	get_fract_part(long double n)
 {
