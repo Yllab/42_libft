@@ -25,6 +25,8 @@ typedef struct		s_index
 	int				flags;
 	int				negative;
 	size_t			size;
+	size_t			head;
+	size_t			head_old;
 }					t_index;
 
 int					ft_printf(const char *format, ...);
