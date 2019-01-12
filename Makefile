@@ -12,9 +12,19 @@
 
 NAME				=	libft.a
 
+# Dir Variables
+
 SRCSDIR   			=	srcs
 
 OBJSDIR   			=	objs
+
+TESTDIR				=	_test
+
+LIBDIRS				:=	libs/libftprintf
+
+INCLUDES			=	-I includes
+
+# File Variables
 
 SRCS_RAW			:=	ft_atoi.c 				\
 						ft_bzero.c 				\
@@ -94,23 +104,37 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_ldtoa.c				\
 						ft_round_double.c
 
-SRCS				=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
+SRCS				:=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
 
 OBJS  				:=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
-DEPENDENCIES		=	$(OBJS:%.o=%.d)
+LIBOBJS				:=	$(patsubst %, %/objs/*.o, $(LIBDIRS))
 
-INCLUDES			=	-I includes
+DEPENDENCIES		:=	$(OBJS:%.o=%.d)
+
+# Compiler Config
 
 CC					=	gcc
 
 CFLAGS				+=	-Wall -Werror -Wextra
 
-all					:	$(NAME)
+# Main Target
+
+all					:	makelibs $(NAME)
+
 
 $(NAME)				: 	$(OBJS)
 						ar rc $@ $(OBJS)
+						ar rc $@ $(LIBOBJS)
 						ranlib $@
+
+# Make Subsystems
+
+.PHONY				:	makelibs
+makelibs			:
+						@$(foreach LIBDIR, $(LIBDIRS), make -C $(LIBDIR);)
+
+# Compile Objs
 
 -include $(DEPENDENCIES)
 
@@ -118,14 +142,20 @@ $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
 						@mkdir -p objs
 						$(CC) -o $@ $(CFLAGS) $(INCLUDES) -MMD -c $<
 
+# Cleanup
+
 .PHONY				:	clean
 clean				:
 						rm -f $(OBJS) $(DEPENDENCIES)
 						rm -rf $(OBJSDIR)
+						@$(foreach LIBDIR, $(LIBDIRS), make clean -C $(LIBDIR);)
+						make clean -C $(TESTDIR)
 
 .PHONY				:	fclean
 fclean				:	clean
 						rm -f $(NAME)
+						@$(foreach LIBDIR, $(LIBDIRS), make fclean -C $(LIBDIR);)
+						make fclean -C $(TESTDIR)
 
 .PHONY				:	re
 re					:	fclean all
