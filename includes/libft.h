@@ -16,7 +16,7 @@
 # include <string.h>
 
 /*
-** List functions
+** list functions
 */
 
 typedef struct		s_list
@@ -34,7 +34,7 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 /*
-** Mem functions
+** mem functions
 */
 
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -49,7 +49,7 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memrealloc(void *old, size_t old_size, size_t new_size);
 
 /*
-** String functions
+** string functions
 */
 
 void				ft_strclr(char *s);
@@ -59,6 +59,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strnew(size_t size);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strchr(const char *s, int c);
+int					ft_strchri(const char *s, const char c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -82,7 +83,7 @@ char				*ft_strnstr(const char *haystack,
 char				*ft_str_realloc(char *old, size_t size);
 
 /*
-** Print functions
+** print functions
 */
 
 int					ft_printf(const char *format, ...);
@@ -96,7 +97,7 @@ void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 
 /*
-** Conversion functions
+** conversion functions
 */
 
 char				*ft_itoa(int n);
@@ -123,7 +124,7 @@ long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
 
 /*
-** Misc functions
+** misc functions
 */
 
 int					ft_sqrt(int nb);
