@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 13:14:59 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:45:22 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ int		main(int argc, char **argv)
 		test_string(&ft_printf);
 	}
 	*/
-	ft_printf("%s test\n", "test");
+	ft_printf("%s def", "abc");
+//	ft_putendl("");
 //	char *s;
-//	ft_asprintf(&s, "%s test\n", "test");
+//	ft_asprintf(&s, "%s def", "abc");
+//	ft_putendl("");
+//	ft_putstr(s);
 	return (0);
 }
