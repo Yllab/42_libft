@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 14:54:45 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:04:43 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:32:40 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int				baker_long(long n, t_index *params)
 {
 	char			*result;
-	int				printed;
 
 	if (params->type == 'u')
 		result = ft_ultoa((unsigned long)n);
@@ -31,10 +30,13 @@ int				baker_long(long n, t_index *params)
 		result = ft_ultoxa((unsigned long)n, (int)(params->type == 'X'));
 	else
 		result = ft_ultooa((unsigned long)n);
-	if (!result)
-		return (0);
-	params->size = ft_strlen(result);
-	printed = printer_arg(result, params->type, params);
-	free(result);
-	return (printed);
+	if (result)
+	{
+		params->size = ft_strlen(result);
+		printer_arg(result, params->type, params);
+		free(result);
+	}
+	else
+		params->buf = NULL;
+	return (1);
 }

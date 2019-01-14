@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 14:56:23 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:01:44 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:38:05 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ int				baker_pointer(void *p, t_index *params)
 	if (!p)
 	{
 		ft_putstr("0x");
-		return (baker_int(0, params) + 2);
+		baker_int(0, params);
 	}
-	params->flags |= 0x1;
-	params->length |= 0x8;
-	return (baker_long((unsigned long)p, params));
+	else
+	{
+		params->flags |= 0x1;
+		params->length |= 0x8;
+		baker_long((unsigned long)p, params);
+	}
+	return (1);
 }

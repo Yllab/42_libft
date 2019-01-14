@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 11:38:52 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:21:18 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:23:52 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,45 +37,43 @@ static int		dispatcher_integer(char c,
 
 static int		dispatcher_integer(char c,
 									va_list *args,
-									t_index *params,
-									char **s)
+									t_index *params)
 {
 	if (c == 'p')
-		return (baker_pointer(va_arg(*args, void*), params, s));
+		return (baker_pointer(va_arg(*args, void*), params));
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
 	{
 		if (params->length & 0x4)
-			return (baker_longlong(va_arg(*args, long long), params, s));
+			return (baker_longlong(va_arg(*args, long long), params));
 		if (params->length & 0x8)
-			return (baker_long(va_arg(*args, long), params, s));
-		return (baker_int(va_arg(*args, int), params, s));
+			return (baker_long(va_arg(*args, long), params));
+		return (baker_int(va_arg(*args, int), params));
 	}
 	return (0);
 }
 
 static int		dispatcher_str(char c,
 								va_list *args,
-								t_index *params,
-								char **s)
+								t_index *params)
 {
 	if (c == '%')
 	{	
 		params->type = 'c';
-		return (baker_char('%', params, s));
+		return (baker_char('%', params));
 	}
 	if (c == 'c')
-		return (baker_char(va_arg(*args, int), params, s));
+		return (baker_char(va_arg(*args, int), params));
 	if (c == 's')
-		return (baker_string(va_arg(*args, char*), params, s));
+		return (baker_string(va_arg(*args, char*), params));
 	return (0);
 }
 
 int				dispatcher(char c, va_list *args, t_index *params)
 {
 	params->type = c;
-	if (dispatcher_str(c, args, params, s) ||
-		dispatcher_integer(c, args, params, s) ||
-		dispatcher_double(c, args, params, s))
+	if (dispatcher_str(c, args, params) ||
+		dispatcher_integer(c, args, params) ||
+		dispatcher_double(c, args, params))
 		return (1);
 	params->type = '\0';
 	return (0);
