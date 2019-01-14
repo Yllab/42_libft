@@ -15,27 +15,22 @@
 #include "libft.h"
 
 size_t				parser(const char *format,
-							size_t *head,
-							va_list *args)
+							t_index *params;
+							va_list *args,
+							char **s)
 {
-	t_index			params;
-	int				printed;
-
-	(*head)++;
-	ft_bzero(&params, sizeof(t_index));
+	params->head++;
 	params.precision = -1;
-	printed = -1;
-	while (format[*head])
+	while (format[params->head])
 	{
-		if (!check_flag(format[*head], &params))
-			if (!check_width(format, head, &params))
-				if (!check_precision(format, head, &params))
-					if (!check_length(format, head, &params))
-						printed = dispatcher(format[*head], args, &params);
-		if (printed != -1)
-			return ((size_t)printed);
-		(*head)++;
+		if (!check_flag(format[params->head], &params))
+			if (!check_width(format, &(params->head), &params))
+				if (!check_precision(format, &(params->head), &params))
+					if (!check_length(format, &(params->head), &params))
+						if (dispatcher(format[params->head], args, &params, s))
+							return (1);
+		params->head++;
 	}
-	(*head)--;
+	params->head--;
 	return (0);
 }

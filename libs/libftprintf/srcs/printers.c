@@ -110,20 +110,20 @@ int					printer_filler(const char c, long long len)
 */
 
 size_t				printer_fmt(const char *format,
-								size_t *head,
-								va_list *args)
+								t_index *params,
+								va_list *args,
+								char **s)
 {
 	static size_t	head_old;
-	size_t			printed;
 
-	printed = *head - head_old;
-	write(1, &(format[head_old]), *head - head_old);
-	if (format[*head])
+	params->head = params->head - head_old;
+	write(1, &(format[head_old]), params->head - head_old);
+	if (format[params->head])
 	{
-		printed += parser(format, head, args);
-		head_old = *head + 1;
+		parser(format, params, args, s);
+		head_old = params->head + 1;
 	}
 	else
 		head_old = 0;
-	return (printed);
+	return (1);
 }

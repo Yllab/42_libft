@@ -22,31 +22,64 @@
 ** ...10000 > L (10)
 */
 
-int				dispatcher(char c, va_list *args, t_index *params)
+static int		dispatcher_integer(char c,
+									va_list *args,
+									t_index *params,
+									char **s)
 {
-	params->type = (c != '%') ? c : 'c';
-	if (c == '%')
-		return (baker_char('%', params));
-	if (c == 'c')
-		return (baker_char(va_arg(*args, int), params));
-	if (c == 's')
-		return (baker_string(va_arg(*args, char*), params));
-	if (c == 'p')
-		return (baker_pointer(va_arg(*args, void*), params));
-	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
-	{
-		if (params->length & 0x4)
-			return (baker_longlong(va_arg(*args, long long), params));
-		if (params->length & 0x8)
-			return (baker_long(va_arg(*args, long), params));
-		return (baker_int(va_arg(*args, int), params));
-	}
 	if (c == 'f')
 	{
 		if (params->length & 0x10)
-			return (baker_longdouble(va_arg(*args, long double), params));
-		return (baker_double(va_arg(*args, double), params));
+			return (baker_longdouble(va_arg(*args, long double), params, s));
+		return (baker_double(va_arg(*args, double), params, s));
 	}
-	params->type = 0;
-	return (-1);
+	return (1);
+}
+
+static int		dispatcher_integer(char c,
+									va_list *args,
+									t_index *params,
+									char **s)
+{
+	if (c == 'p')
+		return (baker_pointer(va_arg(*args, void*), params, s));
+	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
+	{
+		if (params->length & 0x4)
+			return (baker_longlong(va_arg(*args, long long), params, s));
+		if (params->length & 0x8)
+			return (baker_long(va_arg(*args, long), params, s));
+		return (baker_int(va_arg(*args, int), params, s));
+	}
+	return (1);
+}
+
+static int		dispatcher_str(char c,
+								va_list *args,
+								t_index *params,
+								char **s)
+{
+	if (c == '%')
+	{	
+		params->type = 'c';
+		return (baker_char('%', params, s));
+	}
+	if (c == 'c')
+		return (baker_char(va_arg(*args, int), params, s));
+	if (c == 's')
+		return (baker_string(va_arg(*args, char*), params, s));
+	return (1);
+}
+
+int				dispatcher(char c, va_list *args, t_index *params, char **s)
+{
+	params->type = c;
+	if (dispatcher_str(c, args, params, s))
+		return (1);
+	else if (dispatcher_integer(c, args, params, s))
+		return (1);
+	else if (dispatcher_double(c, args, params, s))
+		return (1);
+	params->type = '\0';
+	return (0);
 }
