@@ -5,19 +5,19 @@
 int				ft_asprintf(char **ret, const char *format, ...)
 {
 	va_list		args;
-	size_t		head;
 	t_index		params;
 
 	ft_bzero(&params, sizeof(t_index));
+	params.asprintf = 1;
 	if (ret)
 	{
 		*ret = NULL;
 		if (format && *format)
 		{
 			va_start(args, format);
-			params->buf = ft_strnew(0);
-			if (!params->buf)
-				return (NULL);
+			params.buf = ft_strnew(0);
+			if (!params.buf)
+				return (0);
 			while (format[params.fmt_head])
 			{
 				if (format[params.fmt_head] == '%')
@@ -26,8 +26,8 @@ int				ft_asprintf(char **ret, const char *format, ...)
 			}
 			printer_fmt(format, &params, &args);
 			va_end(args);
-			*ret = params->buf;
+			*ret = params.buf;
 		}
 	}
-	return (params->head);
+	return (params.buf ? params.head : 0);
 }

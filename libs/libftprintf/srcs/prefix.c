@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 12:02:17 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 12:05:56 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:08:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int		prefix_hashtag(t_index *params,
 	if (type == 'X' && (params->flags & 0x1) && s[0] != '0')
 	{
 		if (print)
-			write("0X", 2, params);
+			write_buff("0X", 2, params);
 		return (2);
 	}
 	return (0);
@@ -56,11 +56,11 @@ int				prefix(t_index *params,
 		if (print)
 		{
 			if (params->negative)
-				write_buff("-", 1);
+				write_buff("-", 1, params);
 			else if (params->flags & 0x10)
-				write_buff("+", 1);
+				write_buff("+", 1, params);
 			else if (params->flags & 0x8)
-				write_buff(" ", 1);
+				write_buff(" ", 1, params);
 		}
 		return (1);
 	}

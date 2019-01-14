@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 14:57:20 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:41:20 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:07:08 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int				baker_string(char *s, t_index *params)
 {
 	char		error_handler[7];
-	int			printed;
 
 	if (!s)
 	{

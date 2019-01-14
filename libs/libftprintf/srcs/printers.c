@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:57:08 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:06:18 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 ** This function sends output to buffer for asprintf & to stdout for printf
 */
 
-void				write_buff(char *to_add,
-								size_t len,
-								t_index *params)
+void				write_buff(const char *to_add, size_t len, t_index *params)
 {
 	size_t			swap;
 
@@ -30,9 +28,9 @@ void				write_buff(char *to_add,
 	params->head = params->head_old + len;
 	params->head_old = swap;
 	if (params->asprintf && params->buf)
-		if ((params->buf = ft_str_realloc(s, params->head)))
+		if ((params->buf = ft_str_realloc(params->buf, params->head)))
 			ft_strncpy(&(params->buf[params->head_old]), to_add, len);
-	else if (!params->asprintf)
+	if (!params->asprintf)
 		write(1, to_add, len);
 }
 
@@ -94,7 +92,7 @@ void				printer_arg(const char *s, const char c, t_index *params)
 **	or precision.
 */
 
-void				printer_filler(const char c, long long len, t_index *params)
+void				printer_filler(char c, long long len, t_index *params)
 {
 	char			*buffer;
 	int				i;

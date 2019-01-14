@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 17:12:38 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:57:58 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:11:38 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct		s_index
 }					t_index;
 
 int					ft_printf(const char *format, ...);
-size_t				parser(const char *format, t_index *params, va_list *args);
+int					ft_asprintf(char **ret, const char *format, ...);
+int					parser(const char *format, t_index *params, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
 
 int					baker_char(char c, t_index *params);
@@ -47,13 +48,12 @@ int					baker_longlong(long long n, t_index *params);
 int					baker_double(double n, t_index *params);
 int					baker_longdouble(long double n, t_index *params);
 
-void				write_buff(char *to_add, size_t len, t_index *params);
+void				write_buff(const char *to_add, size_t len, t_index *params);
 void				printer_arg(const char *s, const char c, t_index *params);
 void				printer_fmt(const char *format,
-									size_t *head,
-									va_list *args);
-int					printer_filler(char c, long long len, t_index *params);
-
+								t_index *params,
+								va_list *args);
+void				printer_filler(char c, long long len, t_index *params); 
 void				special_handler(const char *s,
 									const char c,
 									t_index *params);

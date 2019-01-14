@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:18:28 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:02:02 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-int					parser(const char *format,
-							t_index *params;
-							va_list *args)
+int					parser(const char *format, t_index *params, va_list *args)
 {
 	params->fmt_head++;
-	params.precision = -1;
+	params->precision = -1;
 	while (format[params->fmt_head])
 	{
-		if (!check_flag(format[params->fmt_head], &params))
-			if (!check_width(format, &(params->fmt_head), &params))
-				if (!check_precision(format, &(params->fmt_head), &params))
-					if (!check_length(format, &(params->fmt_head), &params))
-						if (dispatcher(format[params->fmt_head], args, &params))
+		if (!check_flag(format[params->fmt_head], params))
+			if (!check_width(format, &(params->fmt_head), params))
+				if (!check_precision(format, &(params->fmt_head), params))
+					if (!check_length(format, &(params->fmt_head), params))
+						if (dispatcher(format[params->fmt_head], args, params))
 							return (0);
 		params->fmt_head++;
 	}

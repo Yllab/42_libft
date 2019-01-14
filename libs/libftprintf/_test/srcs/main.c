@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 17:50:15 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:14:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(int argc, char **argv)
 {
+	/*
 	if (argc == 1 || !strcmp(argv[1], "printf"))
 	{
 		test_int(&printf);
@@ -26,5 +27,9 @@ int		main(int argc, char **argv)
 		test_double(&ft_printf);
 		test_string(&ft_printf);
 	}
+	*/
+	ft_printf("%s test\n", "test");
+//	char *s;
+//	ft_asprintf(&s, "%s test\n", "test");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 11:38:52 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:23:52 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:02:39 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 ** ...10000 > L (10)
 */
 
-static int		dispatcher_integer(char c,
-									va_list *args,
-									t_index *params)
+static int		dispatcher_integer(char c, va_list *args, t_index *params)
 {
 	if (c == 'f')
 	{
@@ -35,9 +33,7 @@ static int		dispatcher_integer(char c,
 	return (0);
 }
 
-static int		dispatcher_integer(char c,
-									va_list *args,
-									t_index *params)
+static int		dispatcher_double(char c, va_list *args, t_index *params)
 {
 	if (c == 'p')
 		return (baker_pointer(va_arg(*args, void*), params));
@@ -52,9 +48,7 @@ static int		dispatcher_integer(char c,
 	return (0);
 }
 
-static int		dispatcher_str(char c,
-								va_list *args,
-								t_index *params)
+static int		dispatcher_str(char c, va_list *args, t_index *params)
 {
 	if (c == '%')
 	{	
