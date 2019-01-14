@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 11:38:52 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 11:39:11 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:21:18 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@
 
 static int		dispatcher_integer(char c,
 									va_list *args,
-									t_index *params,
-									char **s)
+									t_index *params)
 {
 	if (c == 'f')
 	{
 		if (params->length & 0x10)
-			return (baker_longdouble(va_arg(*args, long double), params, s));
-		return (baker_double(va_arg(*args, double), params, s));
+			return (baker_longdouble(va_arg(*args, long double), params));
+		return (baker_double(va_arg(*args, double), params));
 	}
-	return (1);
+	return (0);
 }
 
 static int		dispatcher_integer(char c,
@@ -51,7 +50,7 @@ static int		dispatcher_integer(char c,
 			return (baker_long(va_arg(*args, long), params, s));
 		return (baker_int(va_arg(*args, int), params, s));
 	}
-	return (1);
+	return (0);
 }
 
 static int		dispatcher_str(char c,
@@ -68,17 +67,15 @@ static int		dispatcher_str(char c,
 		return (baker_char(va_arg(*args, int), params, s));
 	if (c == 's')
 		return (baker_string(va_arg(*args, char*), params, s));
-	return (1);
+	return (0);
 }
 
-int				dispatcher(char c, va_list *args, t_index *params, char **s)
+int				dispatcher(char c, va_list *args, t_index *params)
 {
 	params->type = c;
-	if (dispatcher_str(c, args, params, s))
-		return (1);
-	else if (dispatcher_integer(c, args, params, s))
-		return (1);
-	else if (dispatcher_double(c, args, params, s))
+	if (dispatcher_str(c, args, params, s) ||
+		dispatcher_integer(c, args, params, s) ||
+		dispatcher_double(c, args, params, s))
 		return (1);
 	params->type = '\0';
 	return (0);

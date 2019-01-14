@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 17:50:52 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:11:19 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,33 @@
 #include <stdlib.h>
 #include "libftprintf.h"
 #include "libft.h"
+
+/*
+** This function sends output to buffer for asprintf & to stdout for printf
+*/
+
+void				write_buff(char *to_add,
+								size_t len,
+								t_index *params)
+{
+	size_t			swap;
+
+	if (params->asprintf)
+	{	
+		if (params->buf)
+		{
+			swap = params->head;
+			params->head = params->head_old + len;
+			params->head_old = swap;
+			if ((params->buf = ft_str_realloc(s, params->head)))
+				ft_strncpy(&(params->buf[params->head_old]), to_add, len);
+		}
+		else
+			ft_putstr("Malloc error.\n");
+	}
+	else if (!params->asprintf)
+		write(1, to_add, len);
+}
 
 /*
 **	--- printer_arg() ---
@@ -109,21 +136,19 @@ int					printer_filler(const char c, long long len)
 **	Prints format in between arguments.
 */
 
-size_t				printer_fmt(const char *format,
+void				printer_fmt(const char *format,
 								t_index *params,
-								va_list *args,
-								char **s)
+								va_list *args)
 {
-	static size_t	head_old;
-
-	params->head = params->head - head_old;
-	write(1, &(format[head_old]), params->head - head_old);
-	if (format[params->head])
+	params->fmt_head = params->fmt_head - params->fmt_head_old;
+	write_buff(&(format[params->fmt_head_old]),
+				params->fmt_head - params->fmt_head_old,
+				params);
+	if (format[params->fmt_head])
 	{
-		parser(format, params, args, s);
-		head_old = params->head + 1;
+		parser(format, params, args);
+		params->fmt_head_old = params->fmt_head + 1;
 	}
 	else
-		head_old = 0;
-	return (1);
+		params->fmt_head_old = 0;
 }

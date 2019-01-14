@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 17:12:38 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/09 17:55:42 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:08:29 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <string.h>
+# include <stdint.h>
 
 typedef struct		s_index
 {
@@ -25,8 +26,12 @@ typedef struct		s_index
 	int				flags;
 	int				negative;
 	size_t			size;
+	uint8_t			asprintf;
+	char			*buf;
 	size_t			head;
 	size_t			head_old;
+	size_t			fmt_head;
+	size_t			fmt_head_old;
 }					t_index;
 
 int					ft_printf(const char *format, ...);
@@ -42,8 +47,9 @@ int					baker_longlong(long long n, t_index *params);
 int					baker_double(double n, t_index *params);
 int					baker_longdouble(long double n, t_index *params);
 
+void				write_buff(char *to_add, size_t len, t_index *params);
 int					printer_arg(const char *s, const char c, t_index *params);
-size_t				printer_fmt(const char *format,
+void				printer_fmt(const char *format,
 									size_t *head,
 									va_list *args);
 int					printer_filler(char c, long long len);
