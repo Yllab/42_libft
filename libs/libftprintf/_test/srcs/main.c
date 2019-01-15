@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 15:07:41 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/15 17:52:24 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		main(int argc, char **argv)
 {
-	if (argc == 1 || !strcmp(argv[1], "printf"))
+	if (argc == 1)
+		return (0);
+	if (!strcmp(argv[1], "printf"))
 	{
 		test_int(&printf);
 		test_double(&printf);
@@ -28,13 +30,11 @@ int		main(int argc, char **argv)
 	}
 	if (!strcmp(argv[1], "asprintf"))
 	{
-		char *s1;
-		char *s2;
-		int ret1;
-		int ret2;
-
-		printf("%d\n%d\n%d", 123, 123, 123);
-		ft_printf("%d\n%d\n%d", 123, 123, 123);
+		return (0);
+	}
+	else
+	{
+		ft_printf("%d\n%d\n%d\n", 123, 123, 123);
 	}
 	return (0);
 }

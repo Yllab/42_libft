@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 int				baker_long(long n, t_index *params)

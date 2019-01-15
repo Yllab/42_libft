@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/31 15:11:30 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/15 17:42:29 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ OBJSDIR   			=	objs
 
 TESTDIR				=	_test
 
-LIBDIRS				:=	libs/libftprintf
+MAIN_LIBDIR			=	libs
+
+LIBDIRS				:=	$(MAIN_LIBDIR)/libftprintf
 
 INCLUDES			=	-I includes
 
@@ -111,6 +113,8 @@ OBJS  				:=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
 LIBOBJS				:=	$(patsubst %, %/objs/*.o, $(LIBDIRS))
 
+LIBFILES			:=	$(foreach LIB, $(LIBDIRS), $(LIB)/$(notdir $(LIB)).a)
+
 DEPENDENCIES		:=	$(OBJS:%.o=%.d)
 
 # Compiler Config
@@ -124,7 +128,7 @@ CFLAGS				+=	-Wall -Werror -Wextra
 all					:	makelibs $(NAME)
 
 
-$(NAME)				: 	$(OBJS)
+$(NAME)				: 	$(OBJS) $(LIBFILES)
 						ar rc $@ $(OBJS)
 						ar rc $@ $(LIBOBJS)
 						ranlib $@

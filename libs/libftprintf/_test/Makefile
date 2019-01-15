@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/31 13:09:17 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/15 17:49:10 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ runstdout			:	all
 						./ftprintf_test printf
 						./ftprintf_test ft_printf
 
-$(BINDIR)/$(NAME)	: 	$(OBJS) 
+$(BINDIR)/$(NAME)	: 	$(OBJS) ../libftprintf.a
 						$(CC) -o $@ $(CFLAGS) $(OBJS) $(LIBS)
 
 -include $(DEPENDENCIES)
