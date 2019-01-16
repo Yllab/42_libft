@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 17:05:44 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/16 11:38:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t				parser(const char *format,
 	while (format[*head])
 	{
 		if (!check_flag(format[*head], &params))
-			if (!check_width(format, head, &params))
+			if (!check_width(format, head, &params, args))
 				if (!check_precision(format, head, &params))
 					if (!check_length(format, head, &params))
 						printed = dispatcher(format[*head], args, &params);

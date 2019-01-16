@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:54:39 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/15 17:51:15 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/16 11:38:39 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ int					check_length(const char *format,
 									t_index *params);
 int					check_width(const char *format,
 									size_t *head,
-									t_index *params);
+									t_index *params,
+									va_list *args);
 int					check_precision(const char *format,
 									size_t *head,
 									t_index *params);

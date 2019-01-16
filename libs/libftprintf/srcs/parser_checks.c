@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 15:31:06 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:31:51 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/16 11:40:35 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,19 @@ int				check_length(const char *format,
 
 int				check_width(const char *format,
 							size_t *head,
-							t_index *params)
+							t_index *params,
+							va_list *args)
 {
 	if (ft_isdigit(format[*head]))
 	{
 		params->width = ft_atoll(&(format[*head]));
 		while (ft_isdigit(format[*head + 1]))
 			(*head)++;
+		return (1);
+	}
+	if (format[*head] == '*')
+	{
+		params->width = va_arg(*args, long long);
 		return (1);
 	}
 	return (0);
