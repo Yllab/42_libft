@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/16 11:43:14 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 13:41:58 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		main(int argc, char **argv)
 {
 	if (argc == 1)
 	{
-		ft_printf("%*d", 50, 50);
 		return (0);
 	}
 	if (!strcmp(argv[1], "printf"))

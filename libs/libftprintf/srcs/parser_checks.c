@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 15:31:06 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/16 11:40:35 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 13:41:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				check_width(const char *format,
 	}
 	if (format[*head] == '*')
 	{
-		params->width = va_arg(*args, long long);
+		params->width = (long long)va_arg(*args, unsigned int);
 		return (1);
 	}
 	return (0);
