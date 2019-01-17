@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 13:54:39 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/16 11:38:39 by hbally           ###   ########.fr       */
+/*   Created: 2019/01/17 14:09:08 by hbally            #+#    #+#             */
+/*   Updated: 2019/01/17 14:09:09 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <string.h>
+# include <stdint.h>
 
 typedef struct		s_index
 {
@@ -25,10 +26,17 @@ typedef struct		s_index
 	int				flags;
 	int				negative;
 	size_t			size;
+	uint8_t			asprintf;
+	char			*buf;
+	size_t			head;
+	size_t			head_old;
+	size_t			fmt_head;
+	size_t			fmt_head_old;
 }					t_index;
 
 int					ft_printf(const char *format, ...);
-size_t				parser(const char *format, size_t *head, va_list *args);
+int					ft_asprintf(char **ret, const char *format, ...);
+int					parser(const char *format, t_index *params, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
 
 int					baker_char(char c, t_index *params);
@@ -40,12 +48,12 @@ int					baker_longlong(long long n, t_index *params);
 int					baker_double(double n, t_index *params);
 int					baker_longdouble(long double n, t_index *params);
 
-int					printer_arg(const char *s, const char c, t_index *params);
-size_t				printer_fmt(const char *format,
-									size_t *head,
-									va_list *args);
-int					printer_filler(char c, long long len);
-
+void				write_buff(const char *to_add, size_t len, t_index *params);
+void				printer_arg(const char *s, const char c, t_index *params);
+void				printer_fmt(const char *format,
+								t_index *params,
+								va_list *args);
+void				printer_filler(char c, long long len, t_index *params); 
 void				special_handler(const char *s,
 									const char c,
 									t_index *params);
@@ -57,7 +65,7 @@ int					width(const char *s,
 							const char c,
 							t_index *params,
 							int print);
-int					int_precision(t_index *params);
+void				int_precision(t_index *params);
 int					float_precision(const char *s, t_index *params);
 size_t				find_point(const char *s);
 

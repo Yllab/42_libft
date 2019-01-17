@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:17:03 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 11:38:47 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:33:37 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int		check_downcast(int n, t_index *params)
 int				baker_int(int n, t_index *params)
 {
 	char			*result;
-	int				printed;
 
 	n = check_downcast(n, params);
 	if (params->type == 'u')
@@ -60,10 +59,13 @@ int				baker_int(int n, t_index *params)
 		result = ft_uitoxa((unsigned int)n, (int)(params->type == 'X'));
 	else
 		result = ft_uitooa((unsigned int)n);
-	if (!result)
-		return (0);
-	params->size = ft_strlen(result);
-	printed = printer_arg(result, params->type, params);
-	free(result);
-	return (printed);
+	if (result)
+	{
+		params->size = ft_strlen(result);
+		printer_arg(result, params->type, params);
+		free(result);
+	}
+	else
+		params->buf = NULL;
+	return (1);
 }

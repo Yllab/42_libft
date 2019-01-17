@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/17 13:41:58 by hbally           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf_test.h"
 
 int		main(int argc, char **argv)
@@ -32,6 +20,17 @@ int		main(int argc, char **argv)
 	}
 	if (!strcmp(argv[1], "asprintf"))
 	{
+		char *s1;
+		char *s2;
+		int ret1;
+		int ret2;
+
+		printf("%s   %50d %+.40d %.5f test %c %p %lld %#o\n", "alk;dfj;lakfdj", 4392, 43240, 432.549f, '2', &s1, 904399940394ll, 909);
+		ft_printf("%s   %50d %+.40d %.5f test %c %p %lld %#o\n", "alk;dfj;lakfdj", 4392, 43240, 432.549f, '2', &s1, 904399940394ll, 909);
+
+		printf("%050d\n%0100d\n%0150d", 123, 123, 123);
+		ft_printf("%050d\n%0100d\n%0150d", 123, 123, 123);
+		
 		return (0);
 	}
 }

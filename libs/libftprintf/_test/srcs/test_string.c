@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:58:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:51:46 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:54:45 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void		test_string(int (*f)(const char*, ...))
 {
 	char	*s = "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsum";
 	char	c = '0';
+
+	f("%", s);
 
 	f("%s\n", s);
 	f("%s\n", NULL);

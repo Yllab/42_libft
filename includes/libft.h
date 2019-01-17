@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 15:11:44 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:14:19 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char				*ft_str_realloc(char *old, size_t size);
 */
 
 int					ft_printf(const char *format, ...);
+int					ft_asprintf(char **ret, const char *format, ...);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);

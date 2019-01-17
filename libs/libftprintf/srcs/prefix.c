@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 12:02:17 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 19:19:55 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 13:08:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ static int		prefix_hashtag(t_index *params,
 {
 	if ((type == 'x' || type == 'o') && params->flags & 0x1)
 	{
-		write(1, "0x", (1 + (type == 'x')) * print);
+		if (print)
+			write_buff("0x", (1 + (type == 'x')), params);
 		return (1 + (type == 'x'));
 	}
 	if (type == 'X' && (params->flags & 0x1) && s[0] != '0')
 	{
-		write(1, "0X", 2 * print);
+		if (print)
+			write_buff("0X", 2, params);
 		return (2);
 	}
 	return (0);
@@ -51,12 +53,15 @@ int				prefix(t_index *params,
 	if ((type != 'c' && type != 's' && type != 'u') &&
 			(params->negative || params->flags & 0x18))
 	{
-		if (params->negative)
-			write(1, "-", 1 * print);
-		else if (params->flags & 0x10)
-			write(1, "+", 1 * print);
-		else if (params->flags & 0x8)
-			write(1, " ", 1 * print);
+		if (print)
+		{
+			if (params->negative)
+				write_buff("-", 1, params);
+			else if (params->flags & 0x10)
+				write_buff("+", 1, params);
+			else if (params->flags & 0x8)
+				write_buff(" ", 1, params);
+		}
 		return (1);
 	}
 	return (0);

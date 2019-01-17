@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 12:03:12 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 14:06:57 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 12:51:17 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ static int		print_width(t_index *params, long long to_print, int print)
 		(params->type != 'f' && params->precision == -1)))
 		c = '0';
 	if (print)
-		return (printer_filler(c, to_print));
-	else
-		return (to_print);
+		printer_filler(c, to_print, params);
+	return (to_print);
 }
 
 int				width(const char *s, const char c, t_index *params, int print)

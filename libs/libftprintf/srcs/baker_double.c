@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:20:54 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 17:21:21 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/14 11:36:24 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 static int		check_special(double n, t_index *params)
 {
 	char				string[10];
-	int					printed;
 	unsigned long long	*ptr;
 
 	string[0] = '\0';
@@ -36,8 +35,8 @@ static int		check_special(double n, t_index *params)
 		params->precision = -1;
 		if (params->flags & 0x2)
 			params->flags -= 0x2;
-		printed = baker_string(string, params);
-		return (printed);
+		baker_string(string, params);
+		return (1);
 	}
 	return (0);
 }
@@ -45,12 +44,9 @@ static int		check_special(double n, t_index *params)
 int				baker_double(double n, t_index *params)
 {
 	char		*result;
-	int			printed;
 
-	printed = 0;
-	printed = check_special(n, params);
-	if (printed != 0)
-		return (printed);
+	if (check_special(n, params))
+		return (1);
 	if (n < .0f)
 		params->negative = 1;
 	if (params->precision == -1)
@@ -59,9 +55,10 @@ int				baker_double(double n, t_index *params)
 		if ((result = ft_round_double(result, params->precision)))
 		{
 			params->size = ft_strlen(result);
-			printed = printer_arg(result, params->type, params);
+			printer_arg(result, params->type, params);
 			free(result);
-			return (printed);
+			return (1);
 		}
-	return (0);
+	params->buf = NULL;
+	return (1);
 }
