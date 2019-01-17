@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2019/01/17 14:36:22 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/17 17:06:21 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ run					:	all
 						./ftprintf_test printf > testoutput_printf
 						./ftprintf_test ft_printf > testoutput_ft_printf
 						diff testoutput_printf testoutput_ft_printf > diff
+						rm -f testoutput*
 
 .PHONY				:	runstdout
 runstdout			:	all

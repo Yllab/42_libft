@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 11:38:52 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 13:45:42 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 17:26:25 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int		dispatcher_integer(char c, va_list *args, t_index *params)
 			return (baker_longdouble(va_arg(*args, long double), params));
 		return (baker_double(va_arg(*args, double), params));
 	}
-	return (0);
+	return (NO_ARG_FOUND);
 }
 
 static int		dispatcher_double(char c, va_list *args, t_index *params)
@@ -45,13 +45,13 @@ static int		dispatcher_double(char c, va_list *args, t_index *params)
 			return (baker_long(va_arg(*args, long), params));
 		return (baker_int(va_arg(*args, int), params));
 	}
-	return (0);
+	return (NO_ARG_FOUND);
 }
 
 static int		dispatcher_str(char c, va_list *args, t_index *params)
 {
 	if (c == '%')
-	{	
+	{
 		params->type = 'c';
 		return (baker_char('%', params));
 	}
@@ -59,16 +59,16 @@ static int		dispatcher_str(char c, va_list *args, t_index *params)
 		return (baker_char(va_arg(*args, int), params));
 	if (c == 's')
 		return (baker_string(va_arg(*args, char*), params));
-	return (0);
+	return (NO_ARG_FOUND);
 }
 
 int				dispatcher(char c, va_list *args, t_index *params)
 {
 	params->type = c;
-	if (dispatcher_str(c, args, params) ||
-		dispatcher_integer(c, args, params) ||
-		dispatcher_double(c, args, params))
-		return (1);
+	if (dispatcher_str(c, args, params) == ARG_FOUND ||
+		dispatcher_integer(c, args, params) == ARG_FOUND ||
+		dispatcher_double(c, args, params) == ARG_FOUND)
+		return (ARG_FOUND);
 	params->type = '\0';
-	return (0);
+	return (NO_ARG_FOUND);
 }

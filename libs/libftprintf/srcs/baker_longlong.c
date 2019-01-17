@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 14:55:33 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:32:58 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 16:57:08 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int				baker_longlong(long long n, t_index *params)
 		free(result);
 	}
 	else
-		params->buf = NULL;
-	return (1);
+		params->error = 1;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:20:54 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:36:24 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 16:55:51 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				baker_double(double n, t_index *params)
 	char		*result;
 
 	if (check_special(n, params))
-		return (1);
+		return (0);
 	if (n < .0f)
 		params->negative = 1;
 	if (params->precision == -1)
@@ -57,8 +57,8 @@ int				baker_double(double n, t_index *params)
 			params->size = ft_strlen(result);
 			printer_arg(result, params->type, params);
 			free(result);
-			return (1);
+			return (0);
 		}
-	params->buf = NULL;
-	return (1);
+	params->error = 1;
+	return (0);
 }

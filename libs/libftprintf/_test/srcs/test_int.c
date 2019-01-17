@@ -3,7 +3,6 @@
 void		test_int(int (*f)(const char*, ...))
 {
 	//BASIC
-	/*
 	loop_int(f, "%d\n", 0, INT_MAX, 10000llu);
 	loop_int(f, "%d\n", 0, INT_MIN, 10000llu);
 	loop_int(f, "%d\n", INT_MAX, 0, 10000llu);
@@ -577,8 +576,6 @@ void		test_int(int (*f)(const char*, ...))
 	f("%#0100.3x\n", 0);
 	f("%#0100.3X\n", 0);
 	f("%#0100.3u\n", 0);
-	
-	*/
 	//MISC
 	f("%d\n%d\n%d\n", 1337,1337,1337);
 	f("%d \n %d \n %d \n", 1337,1337,1337);
@@ -587,6 +584,6 @@ void		test_int(int (*f)(const char*, ...))
 	f("%d%d%d", 1337,1337,1337);
 	f("%10d%10d%10d", 1337,1337,1337);
 	f("%d\n%d\n%d", 150,150,150);
-	f("%s   %50d %+.40d %.5f test %c %lld %#o\n", "alk;dfj;lakfdj", 4392, 43240, 432.549f, '2', 904399940394ll, 909);
 	f("%050d\n%0100d\n%0150d", 123, 123, 123);
+	f("%s   %50d %+.40d %.5f test %c %lld %#o\n", "alk;dfj;lakfdj", 4392, 43240, 432.549f, '2', 904399940394ll, 909);
 }

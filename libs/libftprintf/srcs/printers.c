@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/17 14:43:13 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 17:07:49 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 #include "libft.h"
-
-#include <stdio.h>//
 
 /*
 ** This function sends output to buffer for asprintf & to stdout for printf
@@ -33,7 +31,8 @@ void				write_buff(const char *to_add, size_t len, t_index *params)
 			if ((params->buf = ft_str_realloc(params->buf, params->head)))
 				ft_strncpy(&(params->buf[params->head_old]), to_add, len);
 		if (!params->asprintf)
-			write(1, to_add, len);
+			if (write(1, to_add, len) == -1)
+				params->error = 1;
 	}
 }
 
@@ -136,6 +135,6 @@ void				printer_filler(char c, long long len, t_index *params)
 			free(buffer);
 		}
 		else
-			params->buf = NULL;
+			params->error = 1;
 	}
 }

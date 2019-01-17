@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2019/01/14 13:12:27 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/17 16:01:27 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,10 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/prefix.c					\
 						$(SRCSDIR)/width.c					\
 						$(SRCSDIR)/precision.c				\
-						$(SRCSDIR)/special_handler.c
+						$(SRCSDIR)/special_handler.c		\
+						$(SRCSDIR)/reset.c					\
+						$(SRCSDIR)/exit_clean.c
+
 
 OBJSDIR   			=	objs
 

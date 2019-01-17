@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 14:09:08 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/17 14:09:09 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 16:59:32 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,18 @@
 # include <string.h>
 # include <stdint.h>
 
+# define ARG_FOUND 0
+# define NO_ARG_FOUND 1
+
 typedef struct		s_index
 {
+	uint8_t			asprintf;
+	char			*buf;
+	size_t			head;
+	size_t			head_old;
+	size_t			fmt_head;
+	size_t			fmt_head_old;
+	int				error;
 	char			type;
 	int				length;
 	long long		precision;
@@ -26,12 +36,6 @@ typedef struct		s_index
 	int				flags;
 	int				negative;
 	size_t			size;
-	uint8_t			asprintf;
-	char			*buf;
-	size_t			head;
-	size_t			head_old;
-	size_t			fmt_head;
-	size_t			fmt_head_old;
 }					t_index;
 
 int					ft_printf(const char *format, ...);
@@ -53,7 +57,7 @@ void				printer_arg(const char *s, const char c, t_index *params);
 void				printer_fmt(const char *format,
 								t_index *params,
 								va_list *args);
-void				printer_filler(char c, long long len, t_index *params); 
+void				printer_filler(char c, long long len, t_index *params);
 void				special_handler(const char *s,
 									const char c,
 									t_index *params);
@@ -80,5 +84,7 @@ int					check_width(const char *format,
 int					check_precision(const char *format,
 									size_t *head,
 									t_index *params);
+void				reset(t_index *params);
+int					exit_clean(char **ret, t_index *params);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:17:03 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 11:33:37 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 16:56:45 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ int				baker_int(int n, t_index *params)
 		free(result);
 	}
 	else
-		params->buf = NULL;
-	return (1);
+		params->error = 1;
+	return (0);
 }

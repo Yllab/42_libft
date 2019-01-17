@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:20:54 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 13:07:32 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/17 16:57:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int				baker_longdouble(long double n, t_index *params)
 			free(result);
 			return (1);
 		}
-	params->buf = NULL;
-	return (1);
+	params->error = 1;
+	return (0);
 }
