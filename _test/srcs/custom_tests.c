@@ -175,5 +175,7 @@ void		custom_tests(void)
 //	printf("%s\n", ft_dtoa(0));
 //	printf("%s\n", ft_dtoa(34834));
 //	printf("%s\n", ft_dtoa(-34));
-}
 
+	printf("\nABS\n");
+	printf("_______________________________________________________________\n");
+}

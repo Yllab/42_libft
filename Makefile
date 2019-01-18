@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2019/01/15 17:42:29 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/18 13:15:31 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,10 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_ulltooa.c			\
 						ft_dtoa.c				\
 						ft_ldtoa.c				\
+						ft_abs16.c				\
+						ft_abs32.c				\
+						ft_abs64.c				\
+						ft_abstime.c			\
 						ft_round_double.c
 
 SRCS				:=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)

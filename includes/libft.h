@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/14 13:14:19 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/18 13:14:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdint.h>
+# include <time.h>
 
 /*
 ** list functions
@@ -139,5 +141,10 @@ int					ft_isprint(int c);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+
+int16_t				ft_abs16(int16_t n);
+int32_t				ft_abs32(int32_t n);
+int64_t				ft_abs64(int64_t n);
+time_t				ft_abstime(time_t n);
 
 #endif
