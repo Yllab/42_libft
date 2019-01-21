@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2019/01/18 13:15:31 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/21 13:13:56 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ NAME				=	libft.a
 SRCSDIR   			=	srcs
 
 OBJSDIR   			=	objs
-
-TESTDIR				=	_test
 
 MAIN_LIBDIR			=	libs
 
@@ -158,13 +156,11 @@ clean				:
 						rm -f $(OBJS) $(DEPENDENCIES)
 						rm -rf $(OBJSDIR)
 						@$(foreach LIBDIR, $(LIBDIRS), make clean -C $(LIBDIR);)
-						make clean -C $(TESTDIR)
 
 .PHONY				:	fclean
 fclean				:	clean
 						rm -f $(NAME)
 						@$(foreach LIBDIR, $(LIBDIRS), make fclean -C $(LIBDIR);)
-						make fclean -C $(TESTDIR)
 
 .PHONY				:	re
 re					:	fclean all
