@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 14:09:08 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/17 16:59:32 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/25 18:53:02 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 # define ARG_FOUND 0
 # define NO_ARG_FOUND 1
 
+# define NO_FMT_STRING -1
+# define BAD_FD -2
+
 typedef struct		s_index
 {
 	uint8_t			asprintf;
+	int				fd;
 	char			*buf;
 	size_t			head;
 	size_t			head_old;
@@ -39,6 +43,7 @@ typedef struct		s_index
 }					t_index;
 
 int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
 int					ft_asprintf(char **ret, const char *format, ...);
 int					parser(const char *format, t_index *params, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
@@ -86,5 +91,6 @@ int					check_precision(const char *format,
 									t_index *params);
 void				reset(t_index *params);
 int					exit_clean(char **ret, t_index *params);
+int					set_errno(int error);
 
 #endif

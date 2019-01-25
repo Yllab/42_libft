@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/17 17:07:49 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/25 18:20:09 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void				write_buff(const char *to_add, size_t len, t_index *params)
 			if ((params->buf = ft_str_realloc(params->buf, params->head)))
 				ft_strncpy(&(params->buf[params->head_old]), to_add, len);
 		if (!params->asprintf)
-			if (write(1, to_add, len) == -1)
+			if (write(params->fd, to_add, len) == -1)
 				params->error = 1;
 	}
 }

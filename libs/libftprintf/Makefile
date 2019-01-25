@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2019/01/17 16:01:27 by hbally           ###   ########.fr        #
+#    Updated: 2019/01/25 18:38:46 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIBFT				=	../..
 SRCSDIR   			=	srcs
 
 SRCS				:=	$(SRCSDIR)/ft_printf.c				\
+						$(SRCSDIR)/ft_dprintf.c				\
 						$(SRCSDIR)/ft_asprintf.c			\
 						$(SRCSDIR)/parser.c					\
 						$(SRCSDIR)/parser_checks.c			\
