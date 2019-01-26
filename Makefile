@@ -4,8 +4,7 @@
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
+#                                                 +#+#+#+#+#+   +#+            # #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
 #    Updated: 2019/01/21 13:13:56 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -107,7 +106,10 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_abs32.c				\
 						ft_abs64.c				\
 						ft_abstime.c			\
-						ft_round_double.c
+						ft_round_double.c		\
+						get_next_line.c
+
+# 						END OF SRCS_RAW
 
 SRCS				:=	$(SRCS_RAW:%.c=$(SRCSDIR)/%.c)
 

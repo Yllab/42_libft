@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/25 18:37:45 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/26 13:12:16 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string.h>
 # include <stdint.h>
 # include <time.h>
+
+# define GNL_BUFFSIZE 1024
 
 /*
 ** list functions
@@ -130,6 +132,8 @@ long long			ft_atoll(const char *str);
 /*
 ** misc functions
 */
+
+int					get_next_line(const int fd, char **line);
 
 int					ft_sqrt(int nb);
 void				ft_int_swap(int *a, int *b);

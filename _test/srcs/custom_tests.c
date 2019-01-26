@@ -176,6 +176,17 @@ void		custom_tests(void)
 //	printf("%s\n", ft_dtoa(34834));
 //	printf("%s\n", ft_dtoa(-34));
 
-	printf("\nABS\n");
+	printf("\nGNL\n");
 	printf("_______________________________________________________________\n");
+
+	char *line;
+
+	while (get_next_line(0, &line))
+	{
+		if (!ft_strcmp(line, "exit"))
+			break;
+		ft_printf("Line is %s\n", line);
+		free(line);
+	}
+	free(line);
 }
