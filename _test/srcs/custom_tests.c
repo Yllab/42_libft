@@ -189,4 +189,5 @@ void		custom_tests(void)
 		free(line);
 	}
 	free(line);
+	ft_printf("GNL Exit Test (Success)\n");
 }

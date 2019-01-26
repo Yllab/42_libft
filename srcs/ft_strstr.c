@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 14:27:41 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/14 15:40:58 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/26 13:55:22 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	size_t			len_needle;
 
 	i = 0;
+	if (!haystack || !needle)
+		return (NULL);
 	if (!needle[i] && !haystack[i])
 		return ((char*)haystack);
 	len_needle = ft_strlen(needle);
