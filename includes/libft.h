@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:28:05 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/26 13:12:16 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/28 11:51:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdint.h>
 # include <time.h>
 
-# define GNL_BUFFSIZE 1024
+# define GNL_BUFFSIZE 1
 
 /*
 ** list functions
