@@ -23,7 +23,6 @@ void	*ft_memrealloc(void *old, size_t old_size, size_t new_size)
 	if (!new || !old)
 		return (NULL);
 	ft_memcpy(new, old, old_size);
-	free(old);
-	old = NULL;
+	ft_memdel((void**)old);
 	return (new);
 }
