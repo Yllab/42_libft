@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:00:42 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/25 22:15:24 by hbally           ###   ########.fr       */
+/*   Updated: 2019/02/08 10:13:24 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				ft_atoi(const char *str)
 	size_t		i;
 	size_t		len;
 	int			sign;
-	
+
 	i = 0;
 	while ((str[i] >= 7 && str[i] <= 13) || str[i] == ' ')
 		i++;
