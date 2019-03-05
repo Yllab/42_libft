@@ -107,6 +107,7 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_abs64.c				\
 						ft_abstime.c			\
 						ft_round_double.c		\
+						ft_iswhitespace.c		\
 						get_next_line.c
 
 # 						END OF SRCS_RAW
