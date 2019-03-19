@@ -30,7 +30,7 @@ static	int			ft_bufparse(char *buf, char **line, int fd)
 	if (i == 0)
 		if ((ret = (int)read(fd, buf, GNL_BUFFSIZE)) < 1)
 			return (ft_exit(&j, &size, (ret == -1 ? -1 : 0 + *line[0] != 0)));
-	while (buf[i] != '\n' && i < ret && i < GNL_BUFFSIZE)
+	while (i < ret && i < GNL_BUFFSIZE && buf[i] != '\n' )
 		(*line)[j++] = buf[i++];
 	if (i == GNL_BUFFSIZE && buf[i] != '\n')
 	{
