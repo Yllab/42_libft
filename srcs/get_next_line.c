@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:37:23 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/26 13:22:50 by hbally           ###   ########.fr       */
+/*   Updated: 2019/03/19 17:40:27 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	int			ft_bufparse(char *buf, char **line, int fd)
 	if (i == 0)
 		if ((ret = (int)read(fd, buf, GNL_BUFFSIZE)) < 1)
 			return (ft_exit(&j, &size, (ret == -1 ? -1 : 0 + *line[0] != 0)));
-	while (i < ret && i < GNL_BUFFSIZE && buf[i] != '\n' )
+	while (i < ret && i < GNL_BUFFSIZE && buf[i] != '\n')
 		(*line)[j++] = buf[i++];
 	if (i == GNL_BUFFSIZE && buf[i - 1] != '\n')
 	{
