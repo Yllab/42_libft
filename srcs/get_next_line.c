@@ -32,7 +32,7 @@ static	int			ft_bufparse(char *buf, char **line, int fd)
 			return (ft_exit(&j, &size, (ret == -1 ? -1 : 0 + *line[0] != 0)));
 	while (i < ret && i < GNL_BUFFSIZE && buf[i] != '\n' )
 		(*line)[j++] = buf[i++];
-	if (i == GNL_BUFFSIZE && buf[i] != '\n')
+	if (i == GNL_BUFFSIZE && buf[i - 1] != '\n')
 	{
 		size += GNL_BUFFSIZE;
 		*line = (char*)ft_memrealloc(*line, size + 1, size + GNL_BUFFSIZE + 1);
