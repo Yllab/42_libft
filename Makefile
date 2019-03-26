@@ -78,6 +78,12 @@ SRCS_RAW			:=	ft_atoi.c 				\
 						ft_strtrim.c	 		\
 						ft_tolower.c	 		\
 						ft_toupper.c	 		\
+						ft_lstadd.c				\
+						ft_lstdel.c				\
+						ft_lstdelone.c			\
+						ft_lstiter.c			\
+						ft_lstmap.c				\
+						ft_lstnew.c				\
 						ft_str_realloc.c		\
 						ft_memrealloc.c			\
 						ft_sqrt.c				\
