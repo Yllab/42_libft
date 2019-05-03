@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:46:20 by hbally            #+#    #+#             */
-/*   Updated: 2019/03/26 13:47:03 by hbally           ###   ########.fr       */
+/*   Updated: 2019/03/30 17:55:23 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <time.h>
 
 # define GNL_BUFFSIZE 1024
+# define GNL_MAX_LINE_LEN 10000
 
 /*
 ** list functions
@@ -128,6 +129,7 @@ char				*ft_ldtoa(long double n);
 char				*ft_round_double(char *s, size_t p);
 
 int					ft_atoi(const char *str);
+uint32_t			ft_atoui(const char *str);
 long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
 
@@ -146,6 +148,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 int					ft_iswhitespace(int c);
+uint8_t				ft_isnumstring(char *string, int32_t number);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
