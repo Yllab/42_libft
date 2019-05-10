@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:48:37 by hbally            #+#    #+#              #
-#    Updated: 2019/03/26 13:48:41 by hbally           ###   ########.fr        #
+#    Updated: 2019/05/10 16:54:40 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,15 @@ NAME				=	libft.a
 
 # Dir Variables
 
-SRCSDIR   			=	srcs
+SRCSDIR   			=	src
 
-OBJSDIR   			=	objs
+OBJSDIR   			=	obj
 
 MAIN_LIBDIR			=	libs
 
 LIBDIRS				:=	$(MAIN_LIBDIR)/libftprintf
 
-INCLUDES			=	-I includes
+INCLUDES			=	-I inc
 
 # File Variables
 

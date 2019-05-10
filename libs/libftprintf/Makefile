@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2019/01/25 18:38:46 by hbally           ###   ########.fr        #
+#    Updated: 2019/05/10 16:50:30 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME				=	libftprintf.a
 
 LIBFT				=	../..
 
-SRCSDIR   			=	srcs
+SRCSDIR   			=	src
 
 SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/ft_dprintf.c				\
@@ -45,8 +45,8 @@ OBJS				:=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
 DEPENDENCIES		=	$(OBJS:%.o=%.d)
 
-INCLUDES			=	-I $(LIBFT)/includes/ 				\
-						-I includes/						\
+INCLUDES			=	-I $(LIBFT)/inc/ 					\
+						-I inc/								\
 
 CC					=	gcc
 

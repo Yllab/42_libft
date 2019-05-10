@@ -5,13 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/20 17:49:17 by hbally           ###   ########.fr        # #                                                                              #
+#    Created: 2019/05/10 16:52:30 by hbally            #+#    #+#              #
+#    Updated: 2019/05/10 16:54:05 by hbally           ###   ########.fr        #
+#                                                                              #
 # **************************************************************************** #
 
-BINDIR				=	bin
+BINDIR				=	.
 
-SRCSDIR   			=	srcs
+SRCSDIR   			=	src
 
 OBJSDIR   			=	objs
 
@@ -28,8 +29,8 @@ OBJS  				:=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
 DEPENDENCIES		=	$(OBJS:%.o=%.d)
 
-INCLUDES			=	-I includes				\
-						-I libft/includes
+INCLUDES			=	-I inc							\
+						-I libft/inc
 
 CC					=	gcc
 
@@ -42,12 +43,11 @@ libs				:
 						make -C libft
 
 $(NAME)				: 	libs $(OBJS)
-						@mkdir -p bin
 						$(CC) -o $@ $(CFLAGS) -L./libft -lft $(OBJS)
 
 .PHONY				:	run
 run					:	all
-						./$(NAME)
+						$(NAME)
 
 -include $(DEPENDENCIES)
 

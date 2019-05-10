@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2019/01/17 17:06:21 by hbally           ###   ########.fr        #
+#    Updated: 2019/05/10 16:51:22 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT				=	libft
 
 BINDIR				=	.
 
-SRCSDIR   			=	srcs
+SRCSDIR   			=	src
 
 SRCS			   :=	$(SRCSDIR)/main.c					\
 						$(SRCSDIR)/test_string.c			\
@@ -31,8 +31,8 @@ OBJS  			   :=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
 DEPENDENCIES		=	$(OBJS:%.o=%.d)
 
-INCLUDES			=	-I includes							\
-						-I $(LIBFT)/includes
+INCLUDES			=	-I inc								\
+						-I $(LIBFT)/inc
 
 LIBS				=	-L./$(LIBFT)/ -lft
 
